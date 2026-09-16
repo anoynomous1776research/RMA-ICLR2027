@@ -1,1084 +1,609 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="referrer" content="no-referrer">
-<meta name="description" content="Anonymous project page for an ICLR 2027 submission: Context-Orchestrated Research Math Agents.">
-<title>Research Math Agents</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∴</text></svg>">
-<style>
-:root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-img{max-width:100%} [hidden]{display:none!important}
-</style>
-<style>
-:root{
-  --navy:#17365D; --blue:#4A90E2; --cyan:#7CCEDC; --orange:#F2A65A; --green:#6FCF97; --purple:#9B7EDE;
-  --bg:#F8FAFC; --surface:#FFFFFF; --sunk:#EEF3F8; --line:#D9E2EC; --line-strong:#B8C6D6;
-  --text:#172033; --muted:#556178; --faint:#7C879B;
-  --store:#17365D; --store-soft:#E4ECF6;
-  --orch:#2F8E9E; --orch-soft:#E1F3F6;
-  --ops:#C9772A; --ops-soft:#FCEEDF;
-  --good:#2E9D63; --good-soft:#E3F5EB;
-  --bad:#C4513D; --bad-soft:#FBE8E4;
-  --warn:#B7791F;
-  --p0:#C4513D; --p1:#C9772A; --p2:#2F8E9E; --p3:#7C879B;
-  --ours:#17365D; --base:#AEBBCB;
-  --shadow:0 1px 2px rgba(23,32,51,.06),0 6px 24px rgba(23,54,93,.06);
-  --sans:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
-  --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0D1522; --surface:#141F30; --sunk:#101A29; --line:#24324A; --line-strong:#34455F;
-    --text:#E4EAF3; --muted:#A3B0C4; --faint:#7F8CA2;
-    --store:#8DB4E6; --store-soft:#1A2B44;
-    --orch:#7CCEDC; --orch-soft:#15303A;
-    --ops:#F2A65A; --ops-soft:#352618;
-    --good:#6FCF97; --good-soft:#15301F;
-    --bad:#EE8A76; --bad-soft:#3A1E19;
-    --warn:#E9B45C;
-    --p0:#EE8A76; --p1:#F2A65A; --p2:#7CCEDC; --p3:#8C98AD;
-    --ours:#8DB4E6; --base:#44546C;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
-  }
-}
-:root[data-theme="dark"]{
-    --bg:#0D1522; --surface:#141F30; --sunk:#101A29; --line:#24324A; --line-strong:#34455F;
-    --text:#E4EAF3; --muted:#A3B0C4; --faint:#7F8CA2;
-    --store:#8DB4E6; --store-soft:#1A2B44;
-    --orch:#7CCEDC; --orch-soft:#15303A;
-    --ops:#F2A65A; --ops-soft:#352618;
-    --good:#6FCF97; --good-soft:#15301F;
-    --bad:#EE8A76; --bad-soft:#3A1E19;
-    --warn:#E9B45C;
-    --p0:#EE8A76; --p1:#F2A65A; --p2:#7CCEDC; --p3:#8C98AD;
-    --ours:#8DB4E6; --base:#44546C;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
-}
+<!DOCTYPE html><html class="bg-white dark:bg-zinc-900" lang="en" data-theme="device"> <head><meta charset="UTF-8"><meta name="description" content="Anonymous project page for an ICLR 2027 submission on persistent, context-orchestrated agents for research-level mathematics."><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><meta name="generator" content="Astro v6.3.5"><link rel="icon" type="image/svg+xml" href="/RMA-ICLR2027/favicon.svg"><meta property="og:title" content="Context-Orchestrated Research Math Agents"><meta property="og:description" content="Anonymous project page for an ICLR 2027 submission on persistent, context-orchestrated agents for research-level mathematics."><meta property="og:type" content="website"><style>@font-face{font-family:"Noto Sans-e26573b19e8d949d";src:url("/RMA-ICLR2027/_astro/fonts/1d7aab50fda97bb3.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:100 900;font-style:italic;}@font-face{font-family:"Noto Sans-e26573b19e8d949d";src:url("/RMA-ICLR2027/_astro/fonts/1e5097bbf9c9d577.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:100 900;font-style:normal;}@font-face{font-family:"Noto Sans-e26573b19e8d949d fallback: Arial";src:local("Arial");font-display:swap;font-weight:100 900;font-style:italic;size-adjust:100.269%;ascent-override:106.6132%;descent-override:29.2214%;line-gap-override:0%;}@font-face{font-family:"Noto Sans-e26573b19e8d949d fallback: Arial";src:local("Arial");font-display:swap;font-weight:100 900;font-style:normal;size-adjust:100.269%;ascent-override:106.6132%;descent-override:29.2214%;line-gap-override:0%;}:root{--font-noto-sans:"Noto Sans-e26573b19e8d949d","Noto Sans-e26573b19e8d949d fallback: Arial",sans-serif;}</style><link rel="preload" href="/RMA-ICLR2027/_astro/fonts/1e5097bbf9c9d577.woff2" as="font" type="font/woff2" crossorigin><title>Context-Orchestrated Research Math Agents</title><link rel="stylesheet" href="/RMA-ICLR2027/_astro/index.CZbSqXki.css"></head> <body class="prose prose-lg prose-zinc dark:prose-invert prose-a:text-blue-600 prose-a:hover:text-blue-900 prose-a:dark:text-blue-200 prose-a:dark:hover:text-blue-100 prose-a:underline prose-a:decoration-dashed prose-a:underline-offset-4 prose-a:hover:decoration-solid prose-a:font-normal prose-code:bg-zinc-200 prose-code:dark:bg-zinc-800 prose-code:text-zinc-800 prose-code:dark:text-zinc-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-medium prose-code:before:content-none prose-code:after:content-none max-w-none pt-16 pb-6 font-(family-name:--font-noto-sans)"> <main> <header class="full-bleed relative mb-12" data-astro-cid-3ef6ksr2>  <div class="relative z-10 mx-auto flex max-w-[50rem] flex-col items-center px-6 text-center gap-6" data-astro-cid-3ef6ksr2> <h1 class="my-0 text-5xl font-medium" data-astro-cid-3ef6ksr2>Context-Orchestrated Research Math Agents</h1> <div class="flex flex-row flex-wrap justify-center gap-x-8 gap-y-4" data-astro-cid-3ef6ksr2> <div class="flex flex-col items-center text-center" data-astro-cid-3ef6ksr2> <div class="flex flex-row text-xl" data-astro-cid-3ef6ksr2> Anonymous Authors  </div>  </div> </div> <div data-astro-cid-3ef6ksr2>Anonymous submission under review at ICLR 2027</div>  <div class="not-prose flex flex-row flex-wrap justify-center gap-2" data-astro-cid-3ef6ksr2> <a href="#interactive-demo" class="flex flex-row items-center gap-2 rounded-full px-5 py-2 text-lg hover:no-underline bg-zinc-800 text-white hover:bg-black dark:text-zinc-900 dark:hover:bg-zinc-50 dark:bg-zinc-200" data-astro-cid-3ef6ksr2> <svg width="1em" height="1em" data-astro-cid-3ef6ksr2="true" data-icon="ri:play-circle-line">   <symbol id="ai:ri:play-circle-line" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16M10.622 8.415l4.879 3.252a.4.4 0 0 1 0 .666l-4.88 3.252a.4.4 0 0 1-.621-.332V8.747a.4.4 0 0 1 .622-.332"/></symbol><use href="#ai:ri:play-circle-line"></use>  </svg> <span data-astro-cid-3ef6ksr2>Interactive Demo</span> </a><a href="#results" class="flex flex-row items-center gap-2 rounded-full px-5 py-2 text-lg hover:no-underline bg-zinc-800 text-white hover:bg-black dark:text-zinc-900 dark:hover:bg-zinc-50 dark:bg-zinc-200" data-astro-cid-3ef6ksr2> <svg width="1em" height="1em" data-astro-cid-3ef6ksr2="true" data-icon="ri:bar-chart-2-line">   <symbol id="ai:ri:bar-chart-2-line" viewBox="0 0 24 24"><path fill="currentColor" d="M2 13h6v8H2zm14-5h6v13h-6zM9 3h6v18H9zM4 15v4h2v-4zm7-10v14h2V5zm7 5v9h2v-9z"/></symbol><use href="#ai:ri:bar-chart-2-line"></use>  </svg> <span data-astro-cid-3ef6ksr2>Results</span> </a><a href="#bibtex" class="flex flex-row items-center gap-2 rounded-full px-5 py-2 text-lg hover:no-underline bg-zinc-800 text-white hover:bg-black dark:text-zinc-900 dark:hover:bg-zinc-50 dark:bg-zinc-200" data-astro-cid-3ef6ksr2> <svg width="1em" height="1em" data-astro-cid-3ef6ksr2="true" data-icon="ri:double-quotes-l">   <symbol id="ai:ri:double-quotes-l" viewBox="0 0 24 24"><path fill="currentColor" d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179m10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179"/></symbol><use href="#ai:ri:double-quotes-l"></use>  </svg> <span data-astro-cid-3ef6ksr2>BibTeX</span> </a> </div> </div> </header>
+<div class="full-bleed bg-zinc-200 py-8 dark:bg-zinc-800"> <div class="mx-[var(--actual-inline-margin)] [&>:first-child]:mt-0 [&>:last-child]:mb-0"> <h2 id="abstract">Abstract</h2><p>Long-horizon mathematical reasoning fails less often because a model cannot produce a valid next step than because an agent fails to maintain and expose the right semantic state across many iterations. Left unmanaged, this produces research-level proofs that are locally convincing yet globally incomplete: a key lemma unproved, an assumption unchecked, a citation unsupported, or a computational claim unverified. We present Research Math Agents (RMA), an agentic framework built on a general principle – persistent, structured state combined with task-conditioned context compilation lets an agent reason more reliably over long research trajectories than undifferentiated context management – and instantiates this principle for proof development as a persistent, issue-driven process. The Research Context Orchestrator is the central state-management layer between the persistent research store and each locally scoped proof operation: it retrieves task-relevant artifacts, compiles them into a bounded context, invokes the appropriate operation, and writes the resulting proof edits, issue updates, literature notes, plans, or evaluations back to the store. This process allows RMA to identify, prioritize, and repair missing proof steps while preserving progress across rounds. Across complementary evaluation settings, RMA outperforms strong baselines. On the independently evaluated SOOHAK Challenge Hard set, it achieves a 42.5% solve rate, compared with 12.5% for its standalone Claude Opus 4.8 backbone. Under blind human-expert evaluation on First Proof, RMA obtains 8 of 10 correct solutions on B1 and 8 of 10 passing solutions on B2, surpassing GPT-5.2R, Aletheia, ProofCouncil, and other research-math agents at a cost comparable to leading agentic pipelines. RMA also achieves the strongest results on ResearchMath and Formal Conjectures, with better lemma decomposition and higher Lean 4-verified success on previously solved research problems.</p> </div> </div>
+<h2 id="method">Method</h2>
+<p>Research-level proofs usually fail by <em>omission</em>: the text reads as finished, but a required part of the argument is still missing. Repairing such a gap needs more than another critique of the current draft. It needs the unresolved claim itself, what depends on it, what has already been tried, and which literature applies. RMA therefore treats proof development as a state-management problem and organizes it into three layers.</p>
+<div class="mx-[calc(max(var(--minimum-inline-margin),(100cqw-100rem)/2)-var(--actual-inline-margin))]"> <figure> <div class="flex w-full justify-center **:my-0"> <picture> <source srcset="/RMA-ICLR2027/_astro/model.CBekUEvJ_13PEar.avif 640w, /RMA-ICLR2027/_astro/model.CBekUEvJ_Z1EpyPe.avif 750w, /RMA-ICLR2027/_astro/model.CBekUEvJ_p2GgP.avif 828w, /RMA-ICLR2027/_astro/model.CBekUEvJ_ZIyvQ4.avif 1080w, /RMA-ICLR2027/_astro/model.CBekUEvJ_1efmnw.avif 1280w, /RMA-ICLR2027/_astro/model.CBekUEvJ_28Nz0.avif 1668w, /RMA-ICLR2027/_astro/model.CBekUEvJ_Z1HGrPS.avif 2048w, /RMA-ICLR2027/_astro/model.CBekUEvJ_Z68hr9.avif 2537w" type="image/avif">  <img src="/RMA-ICLR2027/_astro/model.CBekUEvJ_1ioVeM.png" srcset="/RMA-ICLR2027/_astro/model.CBekUEvJ_Z2wes3I.png 640w, /RMA-ICLR2027/_astro/model.CBekUEvJ_Zaixfs.png 750w, /RMA-ICLR2027/_astro/model.CBekUEvJ_1T9HQB.png 828w, /RMA-ICLR2027/_astro/model.CBekUEvJ_ZbM12A.png 1080w, /RMA-ICLR2027/_astro/model.CBekUEvJ_1L1Rc0.png 1280w, /RMA-ICLR2027/_astro/model.CBekUEvJ_yUjnt.png 1668w, /RMA-ICLR2027/_astro/model.CBekUEvJ_Z1aTW2p.png 2048w, /RMA-ICLR2027/_astro/model.CBekUEvJ_1ioVeM.png 2537w" alt="Three-layer diagram: the research store on the left, the Research Context Orchestrator in the middle, and locally scoped research operations on the right." loading="lazy" decoding="async" sizes="(min-width: 2537px) 2537px, 100vw" data-astro-image="constrained" data-astro-image-fit="contain" data-astro-image-pos="center" width="2537" height="1183" class="rounded-lg max-h-[calc(100svh-3rem)] max-w-full w-min mx-auto "> </picture> </div> <figcaption class="text-center"> <strong>Overview of RMA.</strong> The research store <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">S</mi></mrow><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathcal" style="margin-right:0.075em">S</span></span></span></span> keeps the persistent state. The orchestrator retrieves and prioritizes relevant records, compiles a bounded observation for each operation, invokes it, and writes the result back. </figcaption> </figure> </div>
+<p><strong>Persistent Research Store.</strong> Each problem has one store <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">S</mi><mo>=</mo><mo stretchy="false">(</mo><mi mathvariant="normal">Π</mi><mo separator="true">,</mo><mi mathvariant="script">I</mi><mo separator="true">,</mo><mi mathvariant="script">M</mi><mo separator="true">,</mo><mi mathvariant="script">L</mi><mo separator="true">,</mo><mi mathvariant="script">K</mi><mo separator="true">,</mo><mi mathvariant="script">H</mi><mo separator="true">,</mo><mi mathvariant="script">E</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{S}=(\Pi,\mathcal{I},\mathcal{M},\mathcal{L},\mathcal{K},\mathcal{H},\mathcal{E})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathcal" style="margin-right:0.075em">S</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em"></span><span class="mopen">(</span><span class="mord">Π</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal" style="margin-right:0.0738em">I</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal" style="margin-right:0.0144em">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal" style="margin-right:0.0097em">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathcal" style="margin-right:0.0894em">E</span><span class="mclose">)</span></span></span></span>. It holds proof revisions, open and resolved issues, meeting records, literature notes, a concept glossary, strategic insights, and evaluations. Each issue records the affected claim, the defect type, the missing justification, and the repair needed, so later rounds can act on it directly instead of re-deriving the diagnosis from the proof text.</p>
+<p><strong>Research Context Orchestrator.</strong> Four complementary critic analyses find issues: an LM gap critic, a deterministic structural and dependency checker, a semantic completeness judge, and a fidelity check against the problem’s cited prior work. Issues are ranked by severity (P0–P3) and then by <em>dependency impact</em>, the number of unresolved downstream claims that rest on the affected claim. Both rankings are computed deterministically from a claim-dependency graph that is rebuilt every round. For every call, the orchestrator compiles the operation’s instructions, the task, the current proof, the linked records, and the operation’s own recent outputs. It then drops whole records in ascending priority until the context fits the budget <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.0502em">B</span></span></span></span>, so it never cuts a record mid-sentence.</p>
+<p><strong>Locally scoped operations.</strong> The critic, solver, literature researcher, meeting, reviser, and evaluator each receive only their compiled observation and return a typed artifact that passes a deterministic gate before it is written back. The solver repairs one issue at a time with anchored patches. Meetings and coordinated revision handle strategy-level changes that local repairs cannot reach.</p>
+<h2 id="interactive-demo">Interactive Demo</h2>
+<p>Step through the rounds of one run to see how the store evolves, what the orchestrator puts into each call’s context, and what each operation writes back. Switch to <em>Generic iterative revision</em> to see how an open obligation drops out of a plain critique-and-revise loop.</p>
+<div class="mx-[calc(max(var(--minimum-inline-margin),(100cqw-100rem)/2)-var(--actual-inline-margin))]"> <div class="rt not-prose" id="rt"> <div class="rt-top"> <div class="rt-problem"> <div class="rt-pt">First Proof B1, Problem 6: ε-light subsets</div> <div class="rt-pm">Spectral graph theory · Expert verdict: 5 of 5 correct</div> </div> <div class="rt-seg" role="group" aria-label="System"> <button id="rt-mode-rma" aria-pressed="true">RMA</button> <button id="rt-mode-gen" aria-pressed="false">Generic iterative revision</button> </div> </div> <div class="rt-statement">
+For a graph <i>G</i> = (<i>V</i>, <i>E</i>), let <i>G<sub>S</sub></i> keep only the edges inside <i>S</i>.
+    A vertex set <i>S</i> is <i>ε-light</i> if <i>εL</i> − <i>L<sub>S</sub></i> is positive semidefinite.
+    Is there a constant <i>c</i> &gt; 0 such that every graph contains an ε-light subset of size at least <i>cε</i>|<i>V</i>|?
+</div> <div class="rt-timeline" role="tablist" aria-label="Rounds" id="rt-timeline"></div> <div class="rt-panels" id="rt-panels" aria-live="polite"></div> <p class="rt-note">
+Schematic walkthrough. Round contents are a simplified reconstruction built around the lemma structure of RMA's
+    delivered proof for this problem, meant to illustrate the mechanism; they are not verbatim logs. The baseline view
+    follows the matched-budget control: one critique-and-revise call per round that sees the problem, its own last
+    output, and a fixed history window.
+</p> <h3 class="rt-h3" id="store-inspector">Research Store inspector</h3> <p class="rt-lede">The store is a set of typed, linked records rather than a transcript. Example records from the same walkthrough:</p> <div class="rt-insp"> <div class="rt-side" role="tablist" aria-label="Store components" id="rt-side"></div> <div class="rt-main"> <div class="rt-path" id="rt-path"></div> <div class="rt-recs"> <div class="rt-list" id="rt-list" role="listbox" aria-label="Records"></div> <div id="rt-detail" aria-live="polite"></div> </div> </div> </div> </div>  <script>
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
-@media (max-width:560px){.wrap{padding-inline:16px}}
-h1,h2,h3,h4{font-family:var(--sans);color:var(--text);text-wrap:balance;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.1;font-weight:700;letter-spacing:-.025em}
-h2{font-size:clamp(1.55rem,2.8vw,2.1rem);line-height:1.18;font-weight:700}
-h3{font-size:1.12rem;line-height:1.3;font-weight:600}
-h4{font-size:.95rem;font-weight:600}
-p{margin:0}
-a{color:var(--blue)}
-.lede{font-size:1.1rem;color:var(--muted);max-width:66ch}
-.label{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
-.mono{font-family:var(--mono);font-size:.85em}
-.num{font-variant-numeric:tabular-nums}
-button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+  const R = [
+    { op: "Critic",
+      claim: "The draft claims c = 1/42 via a greedy construction controlled by a barrier potential. Theorem 1 and Lemmas 3–7 are stated, but several are only sketched.",
+      issues: [["p0","I-01","Lemma 6 (good vertex): existence asserted without proof","new"],["p1","I-02","Lemma 3: trace formula for leverage scores used without derivation","new"],["p2","I-03","Claim 2: reduction to connected graphs not justified","new"],["p3","I-04","Inconsistent notation L_S vs. L_{G_S}","new"]],
+      keep: [["Critic instructions","Instr."],["Problem statement","q"],["Current proof r0","Π"]], drop: [],
+      out: ["Four analyses run on r0","Opened I-01…I-04; I-01 ranked first (P0, 4 downstream claims)","Dependency graph: Lemma 6 → Lemma 7 → Theorem 1 all rest on I-01"],
+      gen: { sees: "Problem · own previous output (none yet)", out: "The critique lists the missing proof of the good-vertex lemma and three presentation issues.", lost: null } },
+    { op: "Solver",
+      claim: "Patch attempt A-02 proves Lemma 6 by direct pigeonhole over the vertices outside S.",
+      issues: [["p0","I-01","Lemma 6 (good vertex): existence asserted without proof","open"],["p1","I-02","Lemma 3: trace formula used without derivation","open"],["p2","I-03","Claim 2: reduction not justified","open"],["p3","I-04","Notation L_S vs. L_{G_S}","res"]],
+      keep: [["Solver instructions + issue I-01","Instr./q"],["Current proof r0","Π"],["Dependency slice: Lemma 5 → 6 → 7","ℐ"],["Concepts: ε-light, leverage score","𝒦"]], drop: [["Insight: try interlacing families","ℋ"]],
+      out: ["Anchored patch applied to Lemma 6 (A-02)","I-04 closed by a notation patch","Next critic pass: the pigeonhole bound loses a factor of 2, so the constant no longer reaches 1/42"],
+      gen: { sees: "Problem · own round-0 output · critique window", out: "Rewrites the proof, adds a short good-vertex argument, and polishes notation.", lost: null } },
+    { op: "Literature",
+      claim: "Proof r1 with the pigeonhole patch. The critic has re-opened the Lemma 6 gap as a weaker-constant defect.",
+      issues: [["p0","I-01","Lemma 6: A-02 loses a factor of 2 (re-flagged)","open"],["p1","I-02","Lemma 3: trace formula used without derivation","open"],["p2","I-03","Claim 2: reduction not justified","open"]],
+      keep: [["Literature instructions","Instr."],["Problem + ranked queue I-01, I-02, I-03","q/ℐ"],["Failed attempt A-02 and why it failed","Attempts"]], drop: [["Meeting notes (none relevant)","ℳ"],["Resolved issue I-04","ℐ"]],
+      out: ["L-01: one-sided barrier potential technique, linked to I-01","L-02: effective resistance ↔ leverage score identity, linked to I-02","Available to the solver next round (one-round lag)"],
+      gen: { sees: "Problem · own round-1 output · critique window (rounds 0–1)", out: "The critique now targets exposition and case analysis; the good-vertex argument \"looks fine\".", lost: "The round-0 critique is about to leave the window, and nothing records that the factor-2 loss was never checked." } },
+    { op: "Solver",
+      claim: "Lemma 6 is re-proved by averaging over t ∉ S with the barrier potential, recovering 1/42. Lemma 3 gets a derivation.",
+      issues: [["p0","I-01","Lemma 6: good vertex via averaging + barrier (A-04)","res"],["p1","I-02","Lemma 3: trace formula derived from L-02","res"],["p2","I-03","Claim 2: reduction not justified","open"]],
+      keep: [["Solver instructions + issue I-01","Instr./q"],["Current proof r2","Π"],["Failed attempt A-02","Attempts"],["Literature note L-01 (barrier)","ℒ"],["Dependency slice: Lemma 5 → 6 → 7","ℐ"]], drop: [["Evaluation trail, rounds 0–2","ℰ"],["Insight: interlacing families","ℋ"]],
+      out: ["A-04 applied as an anchored patch; I-01 resolved","I-02 resolved within the same per-round issue budget (b = 5)","Next critic pass re-derives all issues from scratch"],
+      gen: { sees: "Problem · own round-2 output · critique window (rounds 1–2)", out: "Tightens the case analysis and rewrites the introduction.", lost: "The good-vertex argument still loses a factor of 2, but no critique in the window mentions it." } },
+    { op: "Meeting + Revision",
+      claim: "The local repairs are consistent, but the proof order is tangled. A meeting proposes reducing to connected graphs first, then running the greedy induction.",
+      issues: [["p2","I-03","Claim 2: reduction to connected graphs not justified","open"],["p2","I-05","Lemma 7: induction does not restate the barrier invariant","new"]],
+      keep: [["Meeting instructions","Instr."],["Current proof r3","Π"],["Open issues I-03, I-05","ℐ"],["Attempts A-02, A-04","Attempts"],["Literature L-01, L-02","ℒ"]], drop: [["Old concept revisions","𝒦"],["Low-priority insights","ℋ"]],
+      out: ["Plan: state Claim 2 up front and restate the invariant inside Lemma 7","Revision applies the plan as one coordinated update","I-03 and I-05 closed after write-back"],
+      gen: { sees: "Problem · own round-3 output · critique window (rounds 2–3)", out: "Restructures the sections for readability.", lost: null } },
+    { op: "Evaluator",
+      claim: "Delivered proof: Theorem 1 (final bound), Claim 2 (reduction), Lemma 3 (trace formula), Lemma 4 (quadratic form), Lemma 5 (greedy step), Lemma 6 (good vertex), Lemma 7 (induction).",
+      issues: [["p0","I-01","Lemma 6: good vertex","res"],["p1","I-02","Lemma 3: trace formula","res"],["p2","I-03","Claim 2: reduction","res"],["p2","I-05","Lemma 7: invariant","res"]],
+      keep: [["Evaluator instructions","Instr."],["Current proof r5","Π"],["Issue summary (all resolved)","ℐ"]], drop: [["Meeting transcript","ℳ"],["Literature notes","ℒ"]],
+      out: ["Critic re-scan finds no open P0 or P1 issue","Solved(π, e) certifies completion, so the loop stops","Outcome: 5 of 5 experts judged the proof correct"],
+      gen: { sees: "Problem · own round-4 output · critique window (rounds 3–4)", out: "A polished proof in which the good-vertex step is still weak.", lost: "The obligation raised in round 0 has left the context, but it was never closed in the proof." } },
+  ];
 
-/* nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:28px;height:56px;font-family:var(--sans);font-size:.9rem}
-.brand{font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.02em}
-.nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
-.nav ul a{color:var(--muted);text-decoration:none}
-.nav ul a:hover{color:var(--text)}
-.nav .anon{margin-left:auto;color:var(--faint);font-size:.8rem}
-@media (max-width:760px){.nav .anon{display:none}.nav ul{gap:14px}.nav .wrap{gap:16px}}
-@media (max-width:400px){.nav ul li:nth-child(4){display:none}}
-
-section{padding-block:76px;border-bottom:1px solid var(--line)}
-section.tight{padding-block:56px}
-.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:780px}
-
-/* hero */
-.hero{padding-block:56px 64px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
-@media (max-width:920px){.hero-grid{grid-template-columns:1fr;gap:36px}}
-.hero .kicker{font-family:var(--sans);font-weight:600;color:var(--store);font-size:.95rem;margin-bottom:14px}
-.hero .sub{font-family:var(--sans);font-size:1.05rem;color:var(--muted);margin-top:14px;font-weight:500}
-.hero .thesis{margin-top:18px;font-size:1.08rem;max-width:56ch}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.tag{font-family:var(--sans);font-size:.8rem;font-weight:500;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);background:var(--surface)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.btn{font-family:var(--sans);font-weight:600;font-size:.92rem;padding:10px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--store);transition:background .15s,color .15s}
-.btn.primary{background:var(--store);color:var(--bg)}
-.btn.primary:hover{filter:brightness(1.12)}
-.btn.ghost{color:var(--store);background:transparent}
-.btn.ghost:hover{background:var(--store-soft)}
-.glance{margin-top:30px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--sans);padding-top:20px;border-top:1px solid var(--line)}
-.glance b{font-size:1.5rem;color:var(--store)}
-.glance span{color:var(--muted);font-size:.9rem}
-
-/* architecture */
-.arch{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);font-family:var(--sans)}
-.arch-layer{border-radius:10px;padding:12px 14px}
-.arch-layer .lt{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:9px;display:flex;justify-content:space-between;gap:8px}
-.arch-store{background:var(--store-soft)}
-.arch-store .lt{color:var(--store)}
-.arch-orch{background:var(--orch-soft)}
-.arch-orch .lt{color:var(--orch)}
-.arch-ops{background:var(--ops-soft)}
-.arch-ops .lt{color:var(--ops)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:.8rem;padding:4px 9px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--text);cursor:default;transition:border-color .15s,background .15s,box-shadow .15s}
-button.chip{cursor:pointer}
-.chip.on{border-color:var(--store);box-shadow:0 0 0 1px var(--store)}
-.arch-ops .chip.on{border-color:var(--ops);box-shadow:0 0 0 1px var(--ops)}
-.arrow{display:flex;justify-content:center;align-items:center;gap:8px;height:30px;color:var(--faint);font-size:.75rem}
-.arrow svg{width:14px;height:22px}
-.pipe{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.8rem}
-.pipe span.s{padding:3px 8px;border-radius:5px;background:var(--surface);border:1px solid var(--line)}
-.pipe span.s.hl{border-color:var(--orch);color:var(--orch);font-weight:600}
-.pipe i{font-style:normal;color:var(--faint)}
-.arch-note{margin-top:12px;font-size:.82rem;color:var(--muted);min-height:2.6em}
-.arch-writeback{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.75rem;color:var(--faint)}
-.arch-writeback::before{content:"";flex:1;border-top:1.5px dashed var(--line-strong)}
-.arch-writeback::after{content:"";flex:1;border-top:1.5px dashed var(--line-strong)}
-
-/* why fails */
-.fails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:36px}
-@media (max-width:820px){.fails{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.fail{border-top:3px solid var(--bad);background:var(--surface);padding:14px 16px;border-radius:0 0 8px 8px;border-inline:1px solid var(--line);border-bottom:1px solid var(--line)}
-.fail h4{margin-bottom:4px}
-.fail p{font-size:.92rem;color:var(--muted)}
-.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
-@media (max-width:760px){.vs{grid-template-columns:1fr}}
-.lane{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
-.lane h3{margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.lane h3 .pill{font-size:.72rem}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;font-family:var(--sans);font-size:.9rem}
-.steps li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--line)}
-.steps li:first-child{border-top:0}
-.steps .r{color:var(--faint);font-variant-numeric:tabular-nums}
-.steps .lost{color:var(--bad)}
-.steps .kept{color:var(--good)}
-.pull{margin-top:28px;font-size:1.15rem;font-style:italic;color:var(--text);border-left:3px solid var(--store);padding-left:16px;max-width:70ch}
-
-/* how it works */
-.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-@media (max-width:920px){.three{grid-template-columns:1fr}}
-.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px}
-.col .eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-.col.store .eyebrow{color:var(--store)} .col.orch .eyebrow{color:var(--orch)} .col.ops .eyebrow{color:var(--ops)}
-.col p.d{font-size:.95rem;color:var(--muted)}
-.rec{font-family:var(--sans);font-size:.85rem;background:var(--sunk);border-radius:8px;padding:12px;display:grid;gap:8px}
-.rec-row{display:flex;gap:10px;align-items:baseline;justify-content:space-between}
-.rec-row .t{flex:1}
-.flow{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:.9rem;display:grid;gap:6px}
-.flow li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:8px 10px;border-radius:8px;background:var(--sunk)}
-.flow li b{font-weight:600}
-.flow li small{display:block;color:var(--muted);font-size:.8rem;line-height:1.4}
-.flow .dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--orch);color:var(--orch);font-size:.72rem;display:grid;place-items:center;font-weight:600}
-.flow li.key{background:var(--orch-soft)}
-.ops-list{display:grid;gap:6px}
-.op{border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-.op summary{list-style:none;cursor:pointer;padding:9px 12px;font-family:var(--sans);font-weight:600;font-size:.92rem;display:flex;justify-content:space-between;align-items:center}
-.op summary::-webkit-details-marker{display:none}
-.op summary::after{content:"+";color:var(--faint);font-weight:400}
-.op[open] summary::after{content:"–"}
-.op[open]{border-color:var(--ops)}
-.op p{padding:0 12px 11px;font-size:.9rem;color:var(--muted)}
-
-/* pills */
-.pill{font-family:var(--sans);font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:5px;letter-spacing:.03em;white-space:nowrap;display:inline-block}
-.pill.p0{background:color-mix(in srgb,var(--p0) 16%,transparent);color:var(--p0)}
-.pill.p1{background:color-mix(in srgb,var(--p1) 18%,transparent);color:var(--p1)}
-.pill.p2{background:color-mix(in srgb,var(--p2) 18%,transparent);color:var(--p2)}
-.pill.p3{background:color-mix(in srgb,var(--p3) 18%,transparent);color:var(--p3)}
-.pill.open{background:var(--bad-soft);color:var(--bad)}
-.pill.res{background:var(--good-soft);color:var(--good)}
-.pill.new{background:var(--store-soft);color:var(--store)}
-.pill.neutral{background:var(--sunk);color:var(--muted);border:1px solid var(--line)}
-
-/* trace */
-.trace-top{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
-.problem{font-family:var(--sans);display:grid;gap:4px}
-.problem .pt{font-weight:600;font-size:1.05rem}
-.problem .pm{color:var(--muted);font-size:.88rem;display:flex;flex-wrap:wrap;gap:6px 14px}
-.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:9px;padding:3px;background:var(--surface);font-family:var(--sans);font-size:.85rem}
-.seg button{border:0;background:transparent;padding:6px 12px;border-radius:6px;cursor:pointer;color:var(--muted);font-weight:500}
-.seg button[aria-pressed="true"]{background:var(--store);color:var(--bg)}
-.statement{font-size:.98rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:20px}
-.statement em{font-style:italic}
-.timeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-bottom:20px;font-family:var(--sans);position:relative}
-.timeline::before{content:"";position:absolute;left:8%;right:8%;top:17px;border-top:2px solid var(--line)}
-.tl{position:relative;border:0;background:transparent;cursor:pointer;display:grid;justify-items:center;gap:6px;padding:4px 2px;color:var(--muted)}
-.tl .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line-strong);font-weight:600;font-size:.85rem;font-variant-numeric:tabular-nums;transition:all .15s}
-.tl .op-name{font-size:.78rem;text-align:center;line-height:1.25}
-.tl[aria-selected="true"] .n{background:var(--store);border-color:var(--store);color:var(--bg)}
-.tl[aria-selected="true"]{color:var(--text)}
-.tl:hover .n{border-color:var(--store)}
-@media (max-width:560px){.tl .op-name{font-size:.66rem}.tl .n{width:30px;height:30px}}
-.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;transition:opacity .18s}
-.panels.fading{opacity:.25}
-@media (max-width:820px){.panels{grid-template-columns:1fr}}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.panel .ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.panel .ph .label{color:var(--muted)}
-.panel .body{font-size:.95rem}
-.issue-list{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-family:var(--sans);font-size:.87rem}
-.issue-list li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline}
-.issue-list li.gone .t{text-decoration:line-through;color:var(--faint)}
-.ctx{font-family:var(--sans);font-size:.86rem;display:grid;gap:4px}
-.ctx .keep,.ctx .drop{display:grid;grid-template-columns:18px 1fr auto;gap:8px;align-items:baseline}
-.ctx .keep::before{content:"✓";color:var(--good);font-weight:700}
-.ctx .drop::before{content:"×";color:var(--faint);font-weight:700}
-.ctx .drop{color:var(--faint)}
-.ctx .src{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
-.ctx .sep{margin-top:6px;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
-.budget{height:8px;border-radius:4px;background:var(--sunk);overflow:hidden;display:flex}
-.budget i{display:block;height:100%}
-.out{font-family:var(--sans);font-size:.88rem;display:grid;gap:6px}
-.out .k{color:var(--faint);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase}
-.claim{font-size:.95rem;background:var(--sunk);border-radius:8px;padding:10px 12px}
-.disclaimer{font-family:var(--sans);font-size:.8rem;color:var(--faint);margin-top:14px;max-width:90ch}
-.generic-banner{grid-column:1/-1;font-family:var(--sans);font-size:.86rem;background:var(--bad-soft);color:var(--text);border-radius:10px;padding:10px 14px;border:1px solid color-mix(in srgb,var(--bad) 30%,transparent)}
-.teaser{margin-top:34px;display:grid;gap:10px}
-.teaser figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;overflow-x:auto}
-.teaser img{display:block;width:100%;min-width:640px;height:auto}
-.teaser figcaption{font-family:var(--sans);font-size:.85rem;color:var(--muted);max-width:90ch}
-
-/* inspector */
-.inspector{display:grid;grid-template-columns:220px minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-@media (max-width:760px){.inspector{grid-template-columns:1fr}}
-.insp-side{background:var(--sunk);border-right:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:2px;font-family:var(--sans)}
-@media (max-width:760px){.insp-side{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--line)}}
-.insp-side button{border:0;background:transparent;text-align:left;padding:8px 10px;border-radius:7px;cursor:pointer;font-size:.9rem;display:flex;justify-content:space-between;gap:10px;color:var(--muted)}
-.insp-side button .c{font-variant-numeric:tabular-nums;color:var(--faint);font-size:.8rem}
-.insp-side button[aria-selected="true"]{background:var(--surface);color:var(--text);font-weight:600;box-shadow:inset 0 0 0 1px var(--line)}
-.insp-main{padding:18px 22px;min-width:0;font-family:var(--sans)}
-.insp-main .path{font-family:var(--mono);font-size:.78rem;color:var(--faint);margin-bottom:10px;overflow-wrap:anywhere}
-.insp-records{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:18px}
-@media (max-width:760px){.insp-records{grid-template-columns:1fr}}
-.rlist{display:grid;gap:4px;align-content:start}
-.rlist button{border:1px solid var(--line);background:var(--surface);border-radius:8px;text-align:left;padding:8px 10px;cursor:pointer;font-size:.83rem;display:grid;gap:3px}
-.rlist button[aria-selected="true"]{border-color:var(--store);box-shadow:0 0 0 1px var(--store)}
-.rlist .rid{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
-.kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 18px;font-size:.9rem;margin:0}
-.kv dt{color:var(--faint);font-size:.8rem;padding-top:2px}
-.kv dd{margin:0}
-.kv dd.prose{font-family:var(--serif);font-size:.98rem}
-.links{display:flex;flex-wrap:wrap;gap:5px}
-
-/* charts */
-.ladders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media (max-width:860px){.ladders{grid-template-columns:1fr}}
-.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:8px;min-width:0}
-.chart-card h3{font-size:1rem}
-.chart-card .cap{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
-.chart-card svg{width:100%;height:auto;display:block;overflow:visible}
-svg text{font-family:var(--sans)}
-.takeaway{margin-top:22px;font-size:1.05rem;max-width:80ch}
-.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:18px;margin-top:18px}
-@media (max-width:860px){.split{grid-template-columns:1fr}}
-.hbars{display:grid;gap:5px;font-family:var(--sans);font-size:.84rem}
-.hbar{display:grid;grid-template-columns:minmax(120px,190px) 1fr 34px;gap:10px;align-items:center}
-.hbar .track{height:14px;background:var(--sunk);border-radius:3px;position:relative}
-.hbar .fill{height:100%;border-radius:3px;background:var(--base)}
-.hbar.state .fill{background:var(--store)}
-.hbar .v{font-variant-numeric:tabular-nums;text-align:right;color:var(--muted)}
-.hbar .track::after{content:"";position:absolute;top:-3px;bottom:-3px;left:calc(6/7*100%);border-left:1.5px dashed var(--faint)}
-.hbar.full .fill{background:var(--orch)}
-
-/* results */
-.cards4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-@media (max-width:980px){.cards4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.cards4{grid-template-columns:1fr}}
-.rcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px}
-.rcard .bench{font-family:var(--sans);font-weight:600;font-size:.95rem}
-.rcard .big{font-family:var(--sans);font-size:2.4rem;font-weight:700;color:var(--store);line-height:1;font-variant-numeric:tabular-nums}
-.rcard .big small{font-size:1rem;color:var(--muted);font-weight:500}
-.rcard .cmp{font-family:var(--sans);font-size:.85rem;display:grid;gap:3px;color:var(--muted)}
-.rcard .cmp div{display:flex;justify-content:space-between;gap:10px;font-variant-numeric:tabular-nums}
-.rcard .proto{margin-top:auto;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding-top:10px;border-top:1px solid var(--line)}
-.proto.human{color:var(--store)} .proto.formal{color:var(--good)} .proto.llm{color:var(--warn)}
-.tables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
-@media (max-width:980px){.tables{grid-template-columns:1fr}}
-.tbl{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow-x:auto}
-.tbl h4{margin-bottom:8px}
-table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.85rem;font-variant-numeric:tabular-nums}
-th{font-weight:600;color:var(--faint);font-size:.74rem;text-align:right;padding:5px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
-th:first-child,td:first-child{text-align:left}
-td{padding:5px 6px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
-tr:last-child td{border-bottom:0}
-tr.ours td{font-weight:700;color:var(--store);background:var(--store-soft)}
-details.more{margin-top:14px;font-family:var(--sans);font-size:.9rem}
-details.more summary{cursor:pointer;color:var(--blue);font-weight:500}
-
-/* compute */
-.compute{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-@media (max-width:700px){.compute{grid-template-columns:1fr}}
-.cside{padding:28px 30px;display:grid;gap:10px;align-content:start}
-.cside+.cside{border-left:1px solid var(--line)}
-@media (max-width:700px){.cside+.cside{border-left:0;border-top:1px solid var(--line)}}
-.cside .who{font-family:var(--sans);font-weight:600}
-.cside .score{font-family:var(--sans);font-size:clamp(3rem,7vw,4.6rem);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.cside .score small{font-size:.35em;color:var(--muted);font-weight:500}
-.cside.us .score{color:var(--store)}
-.cside.them .score{color:var(--faint)}
-.dots{display:flex;gap:6px}
-.dots i{width:18px;height:18px;border-radius:4px;background:var(--sunk);border:1px solid var(--line)}
-.dots i.p{background:var(--store);border-color:var(--store)}
-.cside.them .dots i.p{background:var(--base);border-color:var(--base)}
-.cside .cost{font-family:var(--sans);color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
-.matched{grid-column:1/-1;border-top:1px solid var(--line);padding:16px 30px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;font-family:var(--sans);font-size:.9rem;background:var(--sunk)}
-.matched span::before{content:"✓ ";color:var(--good);font-weight:700}
-.matched b{margin-left:auto;color:var(--text)}
-@media (max-width:700px){.matched b{margin-left:0}}
-
-/* formal */
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-@media (max-width:760px){.two{grid-template-columns:1fr}}
-.note{font-family:var(--sans);font-size:.88rem;background:var(--sunk);border-left:3px solid var(--warn);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:18px;max-width:92ch}
-.judge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-@media (max-width:760px){.judge{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-family:var(--sans)}
-.stat b{display:block;font-size:1.7rem;font-variant-numeric:tabular-nums;color:var(--text)}
-.stat span{font-size:.82rem;color:var(--muted)}
-
-/* failures */
-.failcase{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:grid;gap:12px}
-.failcase .meta{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
-.chain{list-style:none;margin:0;padding:0;display:grid;gap:0;font-family:var(--sans);font-size:.9rem}
-.chain li{position:relative;padding:6px 0 6px 22px}
-.chain li::before{content:"";position:absolute;left:5px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--line-strong)}
-.chain li:not(:last-child)::after{content:"";position:absolute;left:8.5px;top:23px;bottom:-7px;border-left:1.5px solid var(--line)}
-.chain li.bad::before{background:var(--bad)}
-.chain li.ok::before{background:var(--good)}
-.failcase p{font-size:.95rem;color:var(--muted)}
-
-/* artifacts */
-.cards-art{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-@media (max-width:980px){.cards-art{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.cards-art{grid-template-columns:1fr}}
-.art{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:8px;align-content:start}
-.art .path{font-family:var(--mono);font-size:.76rem;color:var(--faint);overflow-wrap:anywhere}
-.art p{font-size:.92rem;color:var(--muted)}
-.cfg{margin-top:18px;overflow-x:auto;background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-family:var(--mono);font-size:.82rem;line-height:1.7;white-space:pre;color:var(--text)}
-.cfg .c{color:var(--faint)}
-
-footer{padding-block:40px 56px;font-family:var(--sans);font-size:.88rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
-footer b{color:var(--text)}
-</style>
-</head>
-<body>
-
-
-<nav class="nav" aria-label="Sections">
-  <div class="wrap">
-    <a class="brand" href="#top">RMA</a>
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#trace">Trace</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#artifacts">Artifacts</a></li>
-    </ul>
-    <span class="anon">Anonymous ICLR 2027 Submission</span>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="kicker">Research Math Agents (RMA)</p>
-      <h1>Long-horizon reasoning needs structured state, not just more context.</h1>
-      <p class="sub">Context-Orchestrated Research Math Agents</p>
-      <p class="thesis">RMA keeps a persistent research state for each problem. Before every local reasoning step, it compiles only the context that step needs, and it writes the results back so progress carries across rounds.</p>
-      <div class="tags">
-        <span class="tag">Persistent proof state</span>
-        <span class="tag">Dependency-aware repair</span>
-        <span class="tag">Bounded context orchestration</span>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="#trace">Explore a research trace</a>
-        <a class="btn ghost" href="#results">View results</a>
-      </div>
-      <div class="glance" aria-label="Key result">
-        <b class="num">8/10</b><span>vs</span><b class="num" style="color:var(--faint)">4/10</b>
-        <span>passing First Proof B2 solutions, RMA vs. generic iterative revision, with the same backbone, rounds, tools, and budget</span>
-      </div>
-    </div>
-
-    <div class="arch" id="arch" aria-label="RMA architecture">
-      <div class="arch-layer arch-store">
-        <div class="lt"><span>Research Store 𝒮</span><span style="opacity:.7">persists across rounds</span></div>
-        <div class="chips" id="arch-store">
-          <button class="chip" data-k="proof">Proof Π</button>
-          <button class="chip" data-k="issues">Issues ℐ</button>
-          <button class="chip" data-k="attempts">Attempts</button>
-          <button class="chip" data-k="lit">Literature ℒ</button>
-          <button class="chip" data-k="meet">Meetings ℳ</button>
-          <button class="chip" data-k="concepts">Concepts 𝒦</button>
-          <button class="chip" data-k="insights">Insights ℋ</button>
-          <button class="chip" data-k="evals">Evaluations ℰ</button>
-        </div>
-      </div>
-      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 14 22"><path d="M7 1v18M2 14l5 6 5-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>retrieve linked records</div>
-      <div class="arch-layer arch-orch">
-        <div class="lt"><span>Research Context Orchestrator</span><span style="opacity:.7">budget B = 60k tokens</span></div>
-        <div class="pipe" id="arch-pipe">
-          <span class="s">Retrieve</span><i>→</i><span class="s">Rank</span><i>→</i><span class="s">Compile</span><i>→</i><span class="s">Fit budget</span><i>→</i><span class="s">Invoke</span>
-        </div>
-      </div>
-      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 14 22"><path d="M7 1v18M2 14l5 6 5-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>bounded observation O</div>
-      <div class="arch-layer arch-ops">
-        <div class="lt"><span>Locally scoped operations</span><span style="opacity:.7">see only O</span></div>
-        <div class="chips" id="arch-ops">
-          <button class="chip" data-k="critic">Critic</button>
-          <button class="chip" data-k="solver">Solver</button>
-          <button class="chip" data-k="literature">Literature</button>
-          <button class="chip" data-k="meeting">Meeting</button>
-          <button class="chip" data-k="revision">Revision</button>
-          <button class="chip" data-k="evaluator">Evaluator</button>
-        </div>
-      </div>
-      <div class="arch-writeback">write structured artifact back to 𝒮</div>
-      <p class="arch-note" id="arch-note" aria-live="polite">Hover or tap a store component or an operation to see how it flows through the orchestrator.</p>
-    </div>
-  </div>
-</header>
-
-<main>
-<section id="overview">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">The problem</span>
-      <h2>Why long-horizon proofs fail</h2>
-      <p class="lede">Strong models often write research-level proofs that look right step by step but are incomplete as a whole. They fail by <em>omission</em>: the text reads as finished while a required part of the argument is still missing.</p>
-    </div>
-    <div class="fails">
-      <div class="fail"><h4>Unproved lemma</h4><p>A key intermediate claim is used but never established.</p></div>
-      <div class="fail"><h4>Unchecked assumption</h4><p>The argument depends on a condition that is never verified.</p></div>
-      <div class="fail"><h4>Unsupported citation</h4><p>A cited result is misremembered or doesn't apply as stated.</p></div>
-      <div class="fail"><h4>Unverified computation</h4><p>A finite or numerical claim is asserted without being checked.</p></div>
-    </div>
-
-    <div class="vs">
-      <div class="lane">
-        <h3>Generic iterative agent <span class="pill neutral">transient context</span></h3>
-        <ol class="steps">
-          <li><span class="r">Round 1</span><span>Proof → critique flags a missing lemma → revise</span></li>
-          <li><span class="r">Round 2</span><span>New proof → new critique, mostly about presentation → revise</span></li>
-          <li><span class="r">Round 3</span><span>The first critique falls out of the history window</span></li>
-          <li><span class="r">Round 4</span><span class="lost">The proof reads better, but the lemma is still unproved. The gap is gone from the context, not from the proof.</span></li>
-        </ol>
-      </div>
-      <div class="lane">
-        <h3>RMA <span class="pill new">persistent state</span></h3>
-        <ol class="steps">
-          <li><span class="r">Round 1</span><span>Critic opens <span class="mono">Issue #17</span>: missing lemma, P0, 4 downstream claims</span></li>
-          <li><span class="r">Round 2</span><span>Solver patch fails; the attempt is saved and linked to #17</span></li>
-          <li><span class="r">Round 3</span><span>Literature note on the needed technique is linked to #17</span></li>
-          <li><span class="r">Round 4</span><span class="kept">Solver sees the issue, the failed attempt, and the note. The lemma is repaired, and the next critic pass rechecks it.</span></li>
-        </ol>
-      </div>
-    </div>
-    <p class="pull">RMA treats unresolved proof obligations as persistent state, not as conversation context that eventually scrolls away.</p>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Method</span>
-      <h2>How RMA works</h2>
-      <p class="lede">Three layers: a store that remembers, an orchestrator that decides what each call sees, and narrow operations that each do one job.</p>
-    </div>
-    <div class="three">
-      <div class="col store">
-        <span class="eyebrow">Layer 1</span>
-        <h3>Persistent Research Store</h3>
-        <p class="d">One store per problem: proof revisions, open and resolved issues, prior attempts, literature notes, meeting records, a concept glossary, strategic insights, and evaluations.</p>
-        <div class="chips" id="how-store">
-          <button class="chip on" data-k="issues">Open issues</button>
-          <button class="chip" data-k="proof">Working proof</button>
-          <button class="chip" data-k="attempts">Prior attempts</button>
-          <button class="chip" data-k="lit">Literature</button>
-        </div>
-        <div class="rec" id="how-store-rec" aria-live="polite"></div>
-      </div>
-      <div class="col orch">
-        <span class="eyebrow">Layer 2</span>
-        <h3>Research Context Orchestrator</h3>
-        <p class="d">Each operation receives only the records relevant to its task, within a fixed token budget.</p>
-        <ol class="flow">
-          <li><span class="dot">1</span><span><b>Retrieve</b><small>Follow the store's link graph one hop out from the records the task names.</small></span></li>
-          <li class="key"><span class="dot">2</span><span><b>Rank by severity, then dependency impact</b><small>P0–P3 first, then how many unresolved downstream claims depend on the affected claim. Computed deterministically from a claim-dependency graph that is rebuilt every round.</small></span></li>
-          <li><span class="dot">3</span><span><b>Compile</b><small>Instructions, the task, the current proof, linked records, and the operation's own recent outputs.</small></span></li>
-          <li class="key"><span class="dot">4</span><span><b>Fit to budget</b><small>Drop whole records, lowest priority first (insights → concepts → literature → meetings → evaluations → issues → proof). Records are never cut mid-sentence.</small></span></li>
-          <li><span class="dot">5</span><span><b>Invoke, then write back</b><small>The operation returns a typed artifact, which passes a deterministic gate before entering the store.</small></span></li>
-        </ol>
-      </div>
-      <div class="col ops">
-        <span class="eyebrow">Layer 3</span>
-        <h3>Locally scoped operations</h3>
-        <p class="d">Each operation handles one explicit research task and never sees the full store.</p>
-        <div class="ops-list">
-          <details class="op" open><summary>Critic</summary><p>Runs four analyses: an LM gap critic, a deterministic structural and dependency checker, a semantic completeness judge, and a fidelity check against the problem's cited prior work.</p></details>
-          <details class="op"><summary>Solver</summary><p>Repairs one selected obligation at a time with an anchored patch (exact span plus replacement). Full rewrites are a gated last resort.</p></details>
-          <details class="op"><summary>Literature</summary><p>Retrieves results by mathematical object, dependency, and assumption, and records each technique's conditions of applicability.</p></details>
-          <details class="op"><summary>Meeting</summary><p>A coordinator and field-appropriate mathematician personas reconsider the global proof strategy and produce an action plan.</p></details>
-          <details class="op"><summary>Revision</summary><p>Applies the meeting's action plan as one coordinated global update to the proof.</p></details>
-          <details class="op"><summary>Evaluator</summary><p>Scores correctness, completeness, and clarity, and records the proved-leaf fraction and the issues opened and closed each round.</p></details>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="trace">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Interactive walkthrough</span>
-      <h2>Watch a proof evolve across rounds</h2>
-      <p class="lede">Pick a round to see the state of the proof, the open issues, exactly what the orchestrator put into context, and what the operation produced. Switch to the baseline to see what gets lost.</p>
-    </div>
-
-    <div class="trace-top">
-      <div class="problem">
-        <span class="pt">First Proof B1, Problem 6: ε-light subsets</span>
-        <span class="pm"><span>Spectral graph theory</span><span>Expert verdict: 5 of 5 correct</span></span>
-      </div>
-      <div class="seg" role="group" aria-label="System">
-        <button id="mode-rma" aria-pressed="true">RMA</button>
-        <button id="mode-gen" aria-pressed="false">Generic iterative revision</button>
-      </div>
-    </div>
-
-    <div class="statement">For a graph <em>G</em> = (<em>V</em>, <em>E</em>), let <em>G<sub>S</sub></em> keep only the edges inside <em>S</em>. A vertex set <em>S</em> is <em>ε-light</em> if <em>εL</em> − <em>L<sub>S</sub></em> is positive semidefinite. Is there a constant <em>c</em> &gt; 0 such that every graph contains an ε-light subset of size at least <em>cε</em>|<em>V</em>|?</div>
-
-    <div class="timeline" role="tablist" aria-label="Rounds" id="timeline"></div>
-    <div class="panels" id="panels" aria-live="polite"></div>
-    <p class="disclaimer">This is a schematic walkthrough. The round contents are a simplified reconstruction, built around the lemma structure of RMA's delivered Q6 proof, to illustrate the mechanism. They are not verbatim logs. The baseline view follows the protocol of the matched-budget control: one critique-and-revise call per round that sees the problem, its own last output, and a fixed history window.</p>
-
-    <div class="teaser">
-      <span class="label">Delivered outcome on this problem</span>
-      <figure>
-        <img src="assets/teaser.png" alt="Problem Q6 with the mathematicians' reference lemmas, Aletheia returning no solution, GPT-5.2R obtaining a looser bound of 1/256 with hallucinated references, and RMA obtaining the constant 1/42 with every lemma marked correct." loading="lazy" width="2600" height="1740">
-      </figure>
-      <figcaption>Paper Figure 1. RMA recovers the constant 1/42 and all 5 experts judge it correct. GPT-5.2R derives the looser 1/256 (2 correct, 3 inconclusive verdicts), and Aletheia returns no solution.</figcaption>
-    </div>
-  </div>
-</section>
-
-<section id="store">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Research Store inspector</span>
-      <h2>Inspect the agent's persistent research state</h2>
-      <p class="lede">The store is a set of typed, linked records rather than a transcript. The example records below come from the same schematic walkthrough and are illustrative, not verbatim logs.</p>
-    </div>
-    <div class="inspector">
-      <div class="insp-side" role="tablist" aria-label="Store components" id="insp-side"></div>
-      <div class="insp-main">
-        <div class="path" id="insp-path"></div>
-        <div class="insp-records">
-          <div class="rlist" id="insp-list" role="listbox" aria-label="Records"></div>
-          <div id="insp-detail" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="ablation">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Ablations · First Proof B2 · LLM-judge score, 0–10</span>
-      <h2>What actually matters?</h2>
-      <p class="lede">We strengthened each mechanism step by step from its weakest working variant. The score rises at every step on all three axes, and every axis reaches the full system's 6.0.</p>
-    </div>
-    <div class="ladders" id="ladders"></div>
-    <p class="takeaway">Stronger state retention, more targeted context selection, and dependency-aware prioritization each improve performance monotonically. The two components that govern <em>state</em>, the store and the orchestrator, account for the largest single drops.</p>
-
-    <div class="split">
-      <div class="chart-card">
-        <h3>Component ablation</h3>
-        <p class="cap">Score when one component is reduced to its simplest working variant. Dashed line: full system (6.0).</p>
-        <div class="hbars" id="components"></div>
-      </div>
-      <div class="chart-card">
-        <h3>Cost and rounds</h3>
-        <p class="cap">Left: human-expert passes vs. total run cost (log scale). Right: judge score vs. number of research rounds.</p>
-        <svg id="costchart" viewBox="0 0 520 250" role="img" aria-label="Cost versus passes and rounds versus score"></svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="results">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Main results</span>
-      <h2>Four benchmarks, three kinds of evaluator</h2>
-      <p class="lede">Third-party experts, blind mathematicians, and the Lean 4 kernel. The one LLM-judged benchmark (ResearchMath) is reported last in the paper and read conservatively.</p>
-    </div>
-    <div class="cards4">
-      <div class="rcard">
-        <span class="bench">SOOHAK Challenge Hard</span>
-        <span class="big num">42.5<small>%</small></span>
-        <div class="cmp"><div><span>GPT-5.5</span><span>35.0%</span></div><div><span>Opus 4.8 (our backbone)</span><span>12.5%</span></div><div><span>3 seeds</span><span>41.7 ± 2.5</span></div></div>
-        <span class="proto human">Third-party expert evaluation</span>
-      </div>
-      <div class="rcard">
-        <span class="bench">First Proof B1</span>
-        <span class="big num">8<small> / 10 correct</small></span>
-        <div class="cmp"><div><span>Aletheia</span><span>5 / 10</span></div><div><span>GPT-5.2R</span><span>3 / 10</span></div><div><span>3 seeds</span><span>7.7 ± 0.6</span></div></div>
-        <span class="proto human">Blind mathematician evaluation</span>
-      </div>
-      <div class="rcard">
-        <span class="bench">First Proof B2</span>
-        <span class="big num">8<small> / 10 pass</small></span>
-        <div class="cmp"><div><span>ProofCouncil</span><span>7 / 10</span></div><div><span>UCLA Moonshot</span><span>3 / 10</span></div><div><span>3 seeds</span><span>7.7 ± 0.6</span></div></div>
-        <span class="proto human">Blind mathematician evaluation</span>
-      </div>
-      <div class="rcard">
-        <span class="bench">Formal Conjectures, Research Solved</span>
-        <span class="big num">213<small> / 300</small></span>
-        <div class="cmp"><div><span>NanoProof</span><span>135 / 300</span></div><div><span>ReProver</span><span>105 / 300</span></div><div><span>3 seeds</span><span>211 ± 5</span></div></div>
-        <span class="proto formal">Lean 4 kernel verification</span>
-      </div>
-    </div>
-
-    <details class="more">
-      <summary>Show full comparison tables</summary>
-      <div class="tables">
-        <div class="tbl"><h4>SOOHAK Challenge Hard</h4>
-          <table><thead><tr><th>Method</th><th>Solve %</th></tr></thead><tbody>
-            <tr class="ours"><td>RMA (ours)</td><td>42.5</td></tr><tr><td>GPT-5.5</td><td>35.0</td></tr><tr><td>Gemini 3.1 Pro</td><td>17.5</td></tr><tr><td>Claude Opus 4.8</td><td>12.5</td></tr><tr><td>Kimi K2.7 Code</td><td>7.5</td></tr><tr><td>DeepSeek-V4-Flash</td><td>5.0</td></tr><tr><td>Claude Sonnet 4.5</td><td>2.5</td></tr>
-          </tbody></table></div>
-        <div class="tbl"><h4>First Proof B1 (✓ / ≈ / ×)</h4>
-          <table><thead><tr><th>Method</th><th>✓</th><th>≈</th><th>×</th></tr></thead><tbody>
-            <tr class="ours"><td>RMA (ours)</td><td>8</td><td>1</td><td>1</td></tr><tr><td>Aletheia</td><td>5</td><td>1</td><td>4</td></tr><tr><td>GPT-5.2R</td><td>3</td><td>4</td><td>3</td></tr><tr><td>AgenticR</td><td>3</td><td>2</td><td>5</td></tr><tr><td>Opus 4.8</td><td>0</td><td>1</td><td>9</td></tr><tr><td>GPT-DR</td><td>0</td><td>0</td><td>10</td></tr><tr><td>Gemini-DR</td><td>0</td><td>0</td><td>10</td></tr>
-          </tbody></table></div>
-        <div class="tbl"><h4>First Proof B2</h4>
-          <table><thead><tr><th>Method</th><th>Pass</th><th>Fail</th><th>Cost $</th></tr></thead><tbody>
-            <tr class="ours"><td>RMA (ours)</td><td>8</td><td>2</td><td>3,571</td></tr><tr><td>ProofCouncil</td><td>7</td><td>3</td><td>3,186</td></tr><tr><td>UCLA Moonshot</td><td>3</td><td>7</td><td>4,799</td></tr><tr><td>ChatGPT 5.5 Pro</td><td>3</td><td>7</td><td>117</td></tr><tr><td>Princeton Momus</td><td>1</td><td>9</td><td>1,014</td></tr>
-          </tbody></table></div>
-      </div>
-      <p class="disclaimer">B1: ✓ and × require all experts (at least 3 per problem) to agree, and ≈ marks any disagreement. The one-problem B2 margin over ProofCouncil is within our three-seed spread, so we report it descriptively. ResearchMath (LLM judge): RMA 5/90 positive lemma decompositions (5.6%), vs. 3/90 for Qwen3.5-397B.</p>
-    </details>
-  </div>
-</section>
-
-<section id="compute">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">The causal control</span>
-      <h2>The gain is not explained by more compute alone</h2>
-      <p class="lede">Generic Iterative Revision removes the store and the orchestrator entirely and keeps everything else fixed. Each round is one critique-and-revise call that sees the problem, its last output, and a fixed history window. The same mathematicians grade it blind on the same ten First Proof B2 problems.</p>
-    </div>
-    <div class="compute">
-      <div class="cside us">
-        <span class="who">RMA</span>
-        <span class="score">8<small> / 10</small></span>
-        <div class="dots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i></div>
-        <span class="cost">$3,571 total · 3 seeds: 7.7 ± 0.6</span>
-      </div>
-      <div class="cside them">
-        <span class="who">Generic Iterative Revision</span>
-        <span class="score">4<small> / 10</small></span>
-        <div class="dots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <span class="cost">≈ $3,520 total</span>
-      </div>
-      <div class="matched">
-        <span>Same backbone (Opus 4.8)</span><span>Same rounds (N<sub>R</sub> = 6)</span><span>Same tools</span><span>Same token budget</span>
-        <b>Only the store-and-orchestration mechanism changes.</b>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="backbone" class="tight">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Backbone generality · First Proof B2 · blind expert A–B win rate</span>
-      <h2>Does RMA depend on one proprietary backbone?</h2>
-      <p class="lede">The same fixed RMA pipeline stays effective across proprietary and open-weight backbones.</p>
-    </div>
-    <div class="split" style="margin-top:0">
-      <div class="chart-card">
-        <div class="hbars" id="backbones"></div>
-        <p class="cap">This is a fixed-pipeline drop-in comparison: prompts, tools, and budgets are identical, with no per-backbone prompt tuning.</p>
-      </div>
-      <div class="tbl">
-        <h4>Other benchmarks: the best backbone depends on the benchmark</h4>
-        <table><thead><tr><th>Backbone</th><th>SOOHAK %</th><th>FC solved</th><th>RM pos.</th></tr></thead><tbody>
-          <tr class="ours"><td>Claude Opus 4.8 (default)</td><td>42.5</td><td>213</td><td>5</td></tr>
-          <tr><td>GPT-5.5</td><td><b>45.0</b></td><td>195</td><td>5</td></tr>
-          <tr><td>Gemini 3.1 Pro</td><td>37.5</td><td>185</td><td>4</td></tr>
-          <tr><td>DeepSeek-Prover-V2</td><td>32.5</td><td><b>225</b></td><td>5</td></tr>
-          <tr><td>Qwen2.5-Math</td><td>27.5</td><td>190</td><td>4</td></tr>
-        </tbody></table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="formal" class="tight">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Formal verification · 300 sampled problems each, seed 42, no solvability filtering</span>
-      <h2>From informal research to kernel-checked proofs</h2>
-      <p class="lede">For Formal Conjectures, the same loop produces Lean 4 proofs. Compiler errors become ordinary repair issues, and a proof counts only if the kernel accepts it against the original, unmodified declaration.</p>
-    </div>
-    <div class="two">
-      <div class="chart-card"><h3>Research Solved</h3><div class="hbars" id="fc-solved"></div></div>
-      <div class="chart-card"><h3>Research Open</h3><div class="hbars" id="fc-open"></div><p class="cap">5 vs. 3 is within our three-seed spread (4.7 ± 1.2), so we report it descriptively.</p></div>
-    </div>
-    <p class="note">Kernel acceptance verifies the benchmark's formal target statement. We do not claim that the Research Open cases are independent resolutions of open mathematical problems. Domain experts have not yet reviewed them.</p>
-  </div>
-</section>
-
-<section id="judge" class="tight">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Judge validation · First Proof B1</span>
-      <h2>Does the LLM judge agree with mathematicians?</h2>
-      <p class="lede">The ablation scores above come from a three-model judge panel. We checked that panel against the human experts on the same B1 solutions.</p>
-    </div>
-    <div class="judge">
-      <div class="stat"><b>0.72</b><span>Spearman ρ, expert vs. panel score</span></div>
-      <div class="stat"><b>78%</b><span>Pairwise A–B agreement</span></div>
-      <div class="stat"><b>0.61</b><span>Fleiss' κ among human experts</span></div>
-      <div class="stat"><b>0.68</b><span>Fleiss' κ within the LLM panel</span></div>
-    </div>
-    <p class="note" style="border-left-color:var(--orch)">Without the Opus 4.8 judge (a self-preference check), ρ = 0.69. We use the LLM judge only to compare systems relative to each other, never as a substitute for expert validation of proofs.</p>
-  </div>
-</section>
-
-<section id="failures">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Failure analysis</span>
-      <h2>Where RMA still fails</h2>
-      <p class="lede">The two First Proof B1 problems that did not receive unanimous "correct" verdicts, described from the system's own development record.</p>
-    </div>
-    <div class="two">
-      <div class="failcase">
-        <h3>Local repair cannot fix a wrong global strategy</h3>
-        <span class="meta">Problem 3 · Markov chain with Macdonald stationary distribution · 5 of 5 experts: incorrect</span>
-        <ol class="chain">
-          <li class="bad">Early attempts repeatedly pursue the one construction the problem explicitly rules out</li>
-          <li>The critic flags it correctly every time</li>
-          <li class="bad">The solver has nothing local to patch, because the strategy itself is the defect</li>
-          <li class="ok">After many rounds, a meeting replaces the global strategy</li>
-          <li class="bad">The proof roughly doubles in length, and each critic pass closes old gaps but finds new ones deeper in</li>
-        </ol>
-        <p>Issue discovery can be accurate claim by claim and still be the wrong lever for a defect at the level of the overall strategy. Here the growing proof also outpaced the critic's ability to re-verify it.</p>
-      </div>
-      <div class="failcase">
-        <h3>The critic catches an overclaim and forces a retreat</h3>
-        <span class="meta">Problem 8 · Lagrangian smoothings · 2 correct, 3 inconclusive, 0 incorrect</span>
-        <ol class="chain">
-          <li>The system converges on an unconditional "yes" proof of about 1,900 lines</li>
-          <li class="ok">A later critic pass finds the global claim overreached</li>
-          <li>The claim is withdrawn and the question is declared open</li>
-          <li>The system delivers smaller, unconditional partial results instead</li>
-        </ol>
-        <p>An honest downgrade from "theorem" to "partial results" is neither a clean proof nor a clean error, which is consistent with the split expert verdict.</p>
-      </div>
-    </div>
-    <p class="pull">Persistent state helps preserve proof obligations, but it does not guarantee global correctness.</p>
-  </div>
-</section>
-
-<section id="artifacts">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="label">Reproducibility</span>
-      <h2>Reproduce and inspect</h2>
-      <p class="lede">Everything below is in the anonymous supplementary material submitted with the paper on OpenReview.</p>
-    </div>
-    <div class="cards-art">
-      <div class="art"><h3>Code</h3><span class="path">code/</span><p>The full RMA implementation: store, orchestrator, operations, the Lean 4 verification harness, and tests.</p></div>
-      <div class="art"><h3>Proofs</h3><span class="path">proofs/</span><p>RMA's complete solutions for First Proof B1 (all ten problems) and B2.</p></div>
-      <div class="art"><h3>Evaluation</h3><span class="path">evaluation/</span><p>SOOHAK evaluation materials. The expert instructions and verbatim LLM-judge prompts are in the paper appendix.</p></div>
-      <div class="art"><h3>Reproduction guide</h3><span class="path">README_REPRODUCE.md</span><p>Step-by-step commands for the headline runs, the matched-budget baseline, and the ablation configurations.</p></div>
-    </div>
-    <div class="cfg" aria-label="Default configuration"><span class="c"># default configuration (paper, Appendix: Implementation)</span>
-backbone            claude-opus-4-8   <span class="c"># adaptive thinking, high effort, 64k max output</span>
-rounds N_R          5                 <span class="c"># 6 for First Proof B2 headline + matched baseline</span>
-issue budget b      5                 <span class="c"># issues repaired per round</span>
-context budget B    60,000 tokens     <span class="c"># per operation call</span>
-judge panel         claude-opus-4-8, gpt-5.2, gemini-3.1-pro  <span class="c"># mean of three</span>
-FC sampling         300 open + 300 solved, research category, seed 42
-total spend         ≈ $50,000 · 6.0e9 input / 8e8 output tokens</div>
-    <p class="disclaimer">The sampled Formal Conjectures identifiers, pinned Lean toolchain and Mathlib versions, and the accepted Lean proofs for the five Research Open problems will be released with the code.</p>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span><b>Research Math Agents</b> · Anonymous ICLR 2027 Submission</span>
-    <span>No analytics · No visitor tracking · Anonymous review artifact</span>
-  </div>
-</footer>
-
-<script>
-(function(){
-const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-
-/* ---------- hero architecture ---------- */
-const archNotes={
-  proof:"Proof Π: every revision is kept, and the current proof has the highest context priority, so it is dropped last.",
-  issues:"Issues ℐ: typed records (claim, defect, missing justification, repair needed), ranked by severity and then dependency impact.",
-  attempts:"Attempts: failed repairs stay linked to their issue, so the solver doesn't repeat them.",
-  lit:"Literature ℒ: each note records a technique, its assumptions, the claims it supports, and its limits.",
-  meet:"Meetings ℳ: persona deliberations distilled into an action plan for coordinated revision.",
-  concepts:"Concepts 𝒦: a glossary of objects, definitions, and notation that keeps terminology consistent across rounds.",
-  insights:"Insights ℋ: strategic directions not yet explored. These are the first records dropped when the budget is tight.",
-  evals:"Evaluations ℰ: per-round scores, proved-leaf fraction, and issues opened and closed.",
-  critic:"Critic sees the current proof and open issues, and writes new typed issues to ℐ.",
-  solver:"Solver sees one issue, its dependencies, linked attempts, and literature, and writes an anchored patch to Π.",
-  literature:"Literature sees the problem and the ranked issue queue, and writes notes to ℒ.",
-  meeting:"Meeting sees the proof, issues, attempts, and literature, and writes a plan to ℳ and insights to ℋ.",
-  revision:"Revision sees the action plan and the proof, and writes a coordinated revision to Π.",
-  evaluator:"Evaluator sees the current proof, and writes scores and telemetry to ℰ."
-};
-const archLinks={
-  proof:["critic","solver","meeting","revision","evaluator"],issues:["critic","solver","literature","meeting"],attempts:["solver","meeting"],lit:["solver","meeting","literature"],
-  meet:["revision"],concepts:["solver","revision"],insights:["meeting"],evals:["evaluator","critic"],
-  critic:["proof","issues","evals"],solver:["proof","issues","attempts","lit","concepts"],literature:["issues","lit"],meeting:["proof","issues","attempts","lit","insights","meet"],revision:["proof","meet","concepts"],evaluator:["proof","evals"]
-};
-const archStages={proof:[0,2],issues:[0,1,2],attempts:[0,2],lit:[0,2,3],meet:[0,2],concepts:[0,3],insights:[0,3],evals:[0,2],critic:[2,4],solver:[1,2,3,4],literature:[1,4],meeting:[2,3,4],revision:[2,4],evaluator:[2,4]};
-const archChips=[...document.querySelectorAll('#arch .chip')];
-const stageEls=[...document.querySelectorAll('#arch-pipe .s')];
-function archOn(k){
-  archChips.forEach(c=>c.classList.toggle('on',c.dataset.k===k||(archLinks[k]||[]).includes(c.dataset.k)));
-  stageEls.forEach((s,i)=>s.classList.toggle('hl',(archStages[k]||[]).includes(i)));
-  $('#arch-note').textContent=archNotes[k];
-}
-archChips.forEach(c=>{c.addEventListener('mouseenter',()=>archOn(c.dataset.k));c.addEventListener('focus',()=>archOn(c.dataset.k));c.addEventListener('click',()=>archOn(c.dataset.k));});
-archOn('issues');
-
-/* ---------- how: store examples ---------- */
-const howRec={
-  issues:[["P0","Lemma 6 (good vertex) asserted without proof","4 downstream","open"],["P1","Lemma 3 trace formula used without derivation","3 downstream","open"],["P2","Reduction to connected graphs not justified","1 downstream","open"]],
-  proof:[["r0","Initial draft: greedy barrier argument, constant 1/42","","superseded"],["r3","Lemma 6 proved via averaging over t ∉ S","","superseded"],["r5","Delivered: Theorem 1, Claim 2, Lemmas 3–7","","current"]],
-  attempts:[["A-02","Direct pigeonhole for Lemma 6, which loses a factor of 2","→ issue #I-01","failed"],["A-04","Averaging over t ∉ S with a barrier potential","→ issue #I-01","applied"]],
-  lit:[["L-01","One-sided barrier potentials for spectral sparsification","supports Lemma 6","linked"],["L-02","Effective resistance ↔ leverage score identities","supports Lemma 3","linked"]]
-};
-function renderHow(k){
-  document.querySelectorAll('#how-store .chip').forEach(c=>c.classList.toggle('on',c.dataset.k===k));
-  $('#how-store-rec').innerHTML=howRec[k].map(r=>{
-    const cls=r[0].startsWith('P')?r[0].toLowerCase():'neutral';
-    const st=({open:'open',current:'new',applied:'res',linked:'new',failed:'open',superseded:'neutral'})[r[3]];
-    return `<div class="rec-row"><span class="pill ${cls}">${esc(r[0])}</span><span class="t">${esc(r[1])}${r[2]?`<br><small style="color:var(--faint)">${esc(r[2])}</small>`:''}</span><span class="pill ${st}">${esc(r[3])}</span></div>`;
-  }).join('');
-}
-document.querySelectorAll('#how-store .chip').forEach(c=>c.addEventListener('click',()=>renderHow(c.dataset.k)));
-renderHow('issues');
-
-/* ---------- trace ---------- */
-const R=[
- {op:"Critic",claim:"Draft claims c = 1/42 via a greedy construction controlled by a barrier potential. Theorem 1 and Lemmas 3–7 are stated, but several are only sketched.",
-  issues:[["p0","I-01","Lemma 6 (good vertex): existence asserted without proof","new"],["p1","I-02","Lemma 3: trace formula for leverage scores used without derivation","new"],["p2","I-03","Claim 2: reduction to connected graphs not justified","new"],["p3","I-04","Inconsistent notation L_S vs. L_{G_S}","new"]],
-  keep:[["Critic instructions","Instr."],["Problem statement","q"],["Current proof r0","Π"]],drop:[],fill:[18,0,52],
-  out:["Four analyses run on r0","Opened I-01…I-04; I-01 ranked first (P0, 4 downstream claims)","The dependency graph shows Lemmas 6 → 7 → Theorem 1 all resting on I-01"],
-  gen:{sees:"Problem · own previous output (none yet)",out:"Critique lists the missing proof of the good-vertex lemma and three presentation issues",lost:null}},
- {op:"Solver",claim:"Patch attempt A-02 proves Lemma 6 by direct pigeonhole over vertices outside S.",
-  issues:[["p0","I-01","Lemma 6 (good vertex): existence asserted without proof","open"],["p1","I-02","Lemma 3: trace formula used without derivation","open"],["p2","I-03","Claim 2: reduction not justified","open"],["p3","I-04","Notation L_S vs. L_{G_S}","res"]],
-  keep:[["Solver instructions + issue I-01","Instr./q"],["Current proof r0","Π"],["Dependency slice: Lemma 5 → 6 → 7","ℐ"],["Concept: ε-light, leverage score","𝒦"]],drop:[["Insight: try an interlacing-family approach","ℋ"]],fill:[16,58,20],
-  out:["Anchored patch applied to Lemma 6 (A-02)","I-04 closed via a notation patch","Next critic pass: the pigeonhole bound loses a factor of 2, so the constant no longer reaches 1/42"],
-  gen:{sees:"Problem · own output from round 0 · critique window",out:"Rewrites the proof, adds a short argument for the good vertex, and polishes notation",lost:null}},
- {op:"Literature",claim:"Proof r1 with the pigeonhole patch. The critic re-opened the Lemma 6 gap as a weaker-constant defect.",
-  issues:[["p0","I-01","Lemma 6: A-02 loses a factor of 2 (re-flagged)","open"],["p1","I-02","Lemma 3: trace formula used without derivation","open"],["p2","I-03","Claim 2: reduction not justified","open"]],
-  keep:[["Literature instructions","Instr."],["Problem + ranked queue I-01, I-02, I-03","q/ℐ"],["Failed attempt A-02 (why it loses a factor)","Attempts"]],drop:[["Meeting notes (none relevant)","ℳ"],["Resolved issue I-04","ℐ"]],fill:[14,40,26],
-  out:["L-01: one-sided barrier potential technique, linked to I-01","L-02: effective resistance ↔ leverage score identity, linked to I-02","Available to the solver from next round (one-round lag)"],
-  gen:{sees:"Problem · own output from round 1 · critique window (rounds 0–1)",out:"The critique now targets exposition and case analysis. The good-vertex argument \"looks fine\".",lost:"The round-0 critique is about to leave the window, and nothing records that the factor-2 loss was never checked."}},
- {op:"Solver",claim:"Lemma 6 is re-proved by averaging over t ∉ S with the barrier potential, recovering the 1/42 constant. Lemma 3 gets a derivation.",
-  issues:[["p0","I-01","Lemma 6: good vertex via averaging + barrier (A-04)","res"],["p1","I-02","Lemma 3: trace formula derived from L-02","res"],["p2","I-03","Claim 2: reduction not justified","open"]],
-  keep:[["Solver instructions + issue I-01","Instr./q"],["Current proof r2","Π"],["Failed attempt A-02","Attempts"],["Literature note L-01 (barrier)","ℒ"],["Dependency slice: Lemma 5 → 6 → 7","ℐ"]],drop:[["Evaluation trail rounds 0–2","ℰ"],["Insight: interlacing families","ℋ"]],fill:[14,62,20],
-  out:["A-04 applied as an anchored patch. I-01 resolved.","I-02 resolved by the next issue in the per-round budget (b = 5)","Proved-leaf fraction rises, and the next critic pass re-derives all issues from scratch"],
-  gen:{sees:"Problem · own output from round 2 · critique window (rounds 1–2)",out:"Tightens the case analysis and rewrites the introduction",lost:"The good-vertex argument still carries the factor-2 loss, but no critique in the window mentions it."}},
- {op:"Meeting + Revision",claim:"The local repairs are consistent, but the proof order is tangled. A meeting proposes reducing to connected graphs first, then running the greedy induction.",
-  issues:[["p2","I-03","Claim 2: reduction to connected graphs not justified","open"],["p2","I-05","Lemma 7 induction does not restate the barrier invariant","new"]],
-  keep:[["Meeting instructions","Instr."],["Current proof r3","Π"],["Open issues I-03, I-05","ℐ"],["Attempts A-02, A-04","Attempts"],["Literature L-01, L-02","ℒ"]],drop:[["Old concept revisions","𝒦"],["Low-priority insights","ℋ"]],fill:[12,66,18],
-  out:["Plan: state Claim 2 up front, restate the invariant inside Lemma 7","Revision applies the plan as one coordinated update","I-03 and I-05 closed after the revision is written back"],
-  gen:{sees:"Problem · own output from round 3 · critique window (rounds 2–3)",out:"Restructures sections for readability",lost:null}},
- {op:"Evaluator",claim:"Delivered proof: Theorem 1 (final bound), Claim 2 (reduction), Lemma 3 (trace formula), Lemma 4 (quadratic form), Lemma 5 (greedy step), Lemma 6 (good vertex), Lemma 7 (induction).",
-  issues:[["p0","I-01","Lemma 6 good vertex","res"],["p1","I-02","Lemma 3 trace formula","res"],["p2","I-03","Claim 2 reduction","res"],["p2","I-05","Lemma 7 invariant","res"]],
-  keep:[["Evaluator instructions","Instr."],["Current proof r5","Π"],["Issue summary (all resolved)","ℐ"]],drop:[["Meeting transcript","ℳ"],["Literature notes","ℒ"]],fill:[12,64,10],
-  out:["Critic re-scan finds no open P0/P1 issue","Solved(π, e) certifies completion and the loop stops early","Outcome: 5 of 5 experts judged the proof correct"],
-  gen:{sees:"Problem · own output from round 4 · critique window (rounds 3–4)",out:"A polished proof with the good-vertex step still weak",lost:"The obligation raised in round 0 is gone from the context, but it was never closed in the proof."}}
-];
-let round=0,mode='rma';
-const tl=$('#timeline');
-R.forEach((r,i)=>{
-  const b=document.createElement('button');
-  b.className='tl';b.setAttribute('role','tab');b.id='tl-'+i;
-  b.innerHTML=`<span class="n">${i}</span><span class="op-name">Round ${i}<br>${esc(r.op)}</span>`;
-  b.addEventListener('click',()=>setRound(i));
-  tl.appendChild(b);
-});
-tl.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'){setRound(Math.min(R.length-1,round+1));$('#tl-'+round).focus();}
-  if(e.key==='ArrowLeft'){setRound(Math.max(0,round-1));$('#tl-'+round).focus();}
-});
-const statusPill={new:'<span class="pill new">opened</span>',open:'<span class="pill open">open</span>',res:'<span class="pill res">resolved</span>'};
-function renderTrace(){
-  [...tl.children].forEach((b,i)=>{b.setAttribute('aria-selected',i===round);b.tabIndex=i===round?0:-1;b.querySelector('.op-name').innerHTML=`Round ${i}<br>${esc(mode==='rma'?R[i].op:'Critique + revise')}`;});
-  const r=R[round],P=$('#panels');
-  if(mode==='rma'){
-    const [a,b,c]=r.fill;
-    P.innerHTML=`
-    <div class="panel"><div class="ph"><span class="label">A · Current proof state</span><span class="pill neutral">r${round}</span></div><div class="claim">${esc(r.claim)}</div></div>
-    <div class="panel"><div class="ph"><span class="label">B · Issues in store</span><span class="mono" style="color:var(--faint)">ranked: severity → dependency</span></div>
-      <ul class="issue-list">${r.issues.map(x=>`<li class="${x[3]==='res'?'gone':''}"><span class="pill ${x[0]}">${x[0].toUpperCase()}</span><span class="t"><span class="mono" style="color:var(--faint)">${x[1]}</span> ${esc(x[2])}</span>${statusPill[x[3]]}</li>`).join('')}</ul></div>
-    <div class="panel"><div class="ph"><span class="label">C · Compiled context for ${esc(r.op)}</span></div>
-      <div class="budget" title="Share of the 60k-token budget" aria-label="Budget use: instructions ${a}%, proof and records ${b}%, other ${c}%"><i style="width:${a}%;background:var(--ops)"></i><i style="width:${b}%;background:var(--store)"></i><i style="width:${c}%;background:var(--orch)"></i></div>
-      <div class="ctx">${r.keep.map(k=>`<div class="keep"><span>${esc(k[0])}</span><span class="src">${esc(k[1])}</span></div>`).join('')}
-      ${r.drop.length?`<div class="sep">Dropped to fit budget or task</div>`+r.drop.map(k=>`<div class="drop"><span>${esc(k[0])}</span><span class="src">${esc(k[1])}</span></div>`).join(''):''}</div></div>
-    <div class="panel"><div class="ph"><span class="label">D · Operation output → write back</span></div>
-      <div class="out">${r.out.map((o,i)=>`<div>${i===r.out.length-1?'<span class="k">Next</span><br>':''}${esc(o)}</div>`).join('')}</div></div>`;
-  }else{
-    const g=r.gen;
-    P.innerHTML=`
-    ${g.lost?`<div class="generic-banner"><b>Lost obligation:</b> ${esc(g.lost)}</div>`:''}
-    <div class="panel"><div class="ph"><span class="label">What the call sees</span></div><div class="claim">${esc(g.sees)}</div>
-      <div class="ctx"><div class="drop"><span>Typed issue records</span><span class="src">—</span></div><div class="drop"><span>Dependency graph / severity ranking</span><span class="src">—</span></div><div class="drop"><span>Failed attempts, literature notes</span><span class="src">—</span></div></div></div>
-    <div class="panel"><div class="ph"><span class="label">Critique + revise output</span></div><div class="out"><div>${esc(g.out)}</div></div>
-      <div class="ph" style="margin-top:6px"><span class="label">Tracked open obligations</span></div><div class="out"><div style="color:var(--faint)">None. No state persists outside the history window.</div></div></div>`;
-  }
-}
-function setRound(i){
-  if(i===round){renderTrace();return;}
-  round=i;const P=$('#panels');P.classList.add('fading');
-  setTimeout(()=>{renderTrace();P.classList.remove('fading');},140);
-}
-function setMode(m){mode=m;$('#mode-rma').setAttribute('aria-pressed',m==='rma');$('#mode-gen').setAttribute('aria-pressed',m==='gen');renderTrace();}
-$('#mode-rma').addEventListener('click',()=>setMode('rma'));
-$('#mode-gen').addEventListener('click',()=>setMode('gen'));
-renderTrace();
-
-/* ---------- inspector ---------- */
-const S={
- "Issues":[
-  {id:"I-01",title:"Lemma 6: good vertex unproved",f:[["Type","Missing justification"],["Severity",'<span class="pill p0">P0</span>'],["Claim","Lemma 6 (Good Vertex)"],["Dependency impact","4 downstream claims (Lemma 7, Theorem 1, …)"],["Opened","Round 0 · critic (LM gap critic + structural checker)"],["Repair attempts","2 (A-02 failed, A-04 applied)"],["Status",'<span class="pill res">Resolved in round 3</span>'],["Needed repair",'<span class="prose">Exhibit a vertex t ∉ S whose addition keeps the barrier potential bounded while the leverage sum grows by at most a constant.</span>'],["Links",'<span class="links"><span class="pill neutral">A-02</span><span class="pill neutral">A-04</span><span class="pill neutral">L-01</span><span class="pill neutral">r3</span></span>']]},
-  {id:"I-02",title:"Lemma 3: trace formula underived",f:[["Type","Unsupported claim"],["Severity",'<span class="pill p1">P1</span>'],["Claim","Lemma 3 (Trace formula for leverage scores)"],["Dependency impact","3 downstream claims"],["Opened","Round 0"],["Status",'<span class="pill res">Resolved in round 3</span>'],["Links",'<span class="links"><span class="pill neutral">L-02</span></span>']]},
-  {id:"I-03",title:"Claim 2: reduction not justified",f:[["Type","Missing justification"],["Severity",'<span class="pill p2">P2</span>'],["Claim","Claim 2 (Reduction to connected graphs)"],["Dependency impact","1 downstream claim"],["Opened","Round 0"],["Status",'<span class="pill res">Resolved in round 4 (via meeting plan)</span>'],["Links",'<span class="links"><span class="pill neutral">M-01</span></span>']]}
- ],
- "Proof":[
-  {id:"r0",title:"Initial draft",f:[["Round","0"],["Content",'<span class="prose">Greedy construction with a barrier potential; constant 1/42 claimed; Lemmas 3–7 stated, several only sketched.</span>'],["Proved-leaf fraction","low: 3 of 7 claims closed"]]},
-  {id:"r3",title:"After Lemma 6 repair",f:[["Round","3"],["Change","Anchored patch replacing Lemma 6's proof (A-04), plus a derivation for Lemma 3"],["Write-back gate","Anchor matched uniquely · no text outside the span changed"]]},
-  {id:"r5",title:"Delivered proof",f:[["Round","5"],["Structure",'<span class="prose">Theorem 1 (final bound) · Claim 2 (reduction) · Lemma 3 (trace formula) · Lemma 4 (quadratic form) · Lemma 5 (greedy step) · Lemma 6 (good vertex) · Lemma 7 (induction)</span>'],["Expert verdict","5 of 5 correct"]]}
- ],
- "Attempts":[
-  {id:"A-02",title:"Pigeonhole for Lemma 6",f:[["Issue","I-01"],["Round","1"],["Outcome",'<span class="pill open">Failed on recheck</span>'],["Why",'<span class="prose">Bounds the leverage increase only on average over all vertices, losing a factor of 2 in the final constant.</span>']]},
-  {id:"A-04",title:"Averaging + barrier for Lemma 6",f:[["Issue","I-01"],["Round","3"],["Context used","A-02 (failure reason), L-01 (barrier technique)"],["Outcome",'<span class="pill res">Applied</span>']]}
- ],
- "Literature":[
-  {id:"L-01",title:"Barrier potentials",f:[["Technique","One-sided barrier potential argument from spectral sparsification"],["Assumptions","PSD increments; potential finite at start"],["Supports","Lemma 6 (I-01)"],["Limits",'<span class="prose">Controls only one side of the spectrum. The lower bound must come from elsewhere.</span>']]},
-  {id:"L-02",title:"Leverage score identities",f:[["Technique","Effective resistance ↔ leverage score; trace of the projection"],["Supports","Lemma 3 (I-02)"],["Limits","Connected graphs (see Claim 2)"]]}
- ],
- "Meetings":[
-  {id:"M-01",title:"Restructure proof order",f:[["Round","4"],["Participants","Coordinator · spectral graph theorist · combinatorialist"],["Action plan",'<span class="prose">Move the reduction to connected graphs to the front, and restate the barrier invariant inside the induction of Lemma 7.</span>'],["Insights written","1 (ℋ)"]]}
- ],
- "Concepts":[
-  {id:"K-ε-light",title:"ε-light set",f:[["Definition",'<span class="prose">S ⊆ V is ε-light if εL − L<sub>S</sub> ⪰ 0.</span>'],["Notation","L_S = Laplacian of G_S (edges inside S)"],["Source","Problem statement"]]},
-  {id:"K-lev",title:"Leverage score",f:[["Definition",'<span class="prose">For edge e, ℓ<sub>e</sub> = b<sub>e</sub><sup>⊤</sup> L<sup>†</sup> b<sub>e</sub>.</span>'],["Source","L-02"]]}
- ],
- "Insights":[
-  {id:"H-01",title:"Interlacing families",f:[["Direction","An interlacing-polynomial approach might improve the constant beyond 1/42"],["Priority","Lowest context priority (dropped first)"],["Status","Unexplored, since not needed for the stated question"]]}
- ],
- "Evaluations":[
-  {id:"E-r5",title:"Round 5 evaluation",f:[["Correctness","No open correctness-critical issues"],["Completeness","All leaf claims closed"],["Issues this round","opened 0 · closed 0"],["Decision","Solved(π, e) → stop"]]}
- ]
-};
-const side=$('#insp-side');let comp="Issues",rec=0;
-Object.keys(S).forEach(k=>{
-  const b=document.createElement('button');b.setAttribute('role','tab');b.dataset.k=k;
-  b.innerHTML=`<span>${k}</span><span class="c">${S[k].length}</span>`;
-  b.addEventListener('click',()=>{comp=k;rec=0;renderInsp();});
-  side.appendChild(b);
-});
-function renderInsp(){
-  [...side.children].forEach(b=>b.setAttribute('aria-selected',b.dataset.k===comp));
-  $('#insp-path').textContent=`store/prob-06/${comp.toLowerCase()}/${S[comp][rec].id}.json`;
-  $('#insp-list').innerHTML=S[comp].map((r,i)=>`<button role="option" aria-selected="${i===rec}" data-i="${i}"><span class="rid">${esc(r.id)}</span><span>${esc(r.title)}</span></button>`).join('');
-  [...$('#insp-list').children].forEach(b=>b.addEventListener('click',()=>{rec=+b.dataset.i;renderInsp();}));
-  const r=S[comp][rec];
-  $('#insp-detail').innerHTML=`<h3 style="margin-bottom:12px">${esc(r.title)}</h3><dl class="kv">${r.f.map(x=>`<dt>${esc(x[0])}</dt><dd>${x[1]}</dd>`).join('')}</dl>`;
-}
-renderInsp();
-
-/* ---------- charts ---------- */
-const NS='http://www.w3.org/2000/svg';
-function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;parent&&parent.appendChild(e);return e;}
-const ladders=[
-  {t:"Cross-round memory",pts:[["Stateless",1.8],["Last round only",3.4],["Full persistence",6.0]]},
-  {t:"Context handling",pts:[["Dump entire state",2.4],["Naive truncation",4.0],["RMA orchestration",6.0]]},
-  {t:"Issue ordering",pts:[["FIFO",3.8],["Severity only",5.0],["Severity + dependency",6.0]]}
-];
-const L=$('#ladders');
-ladders.forEach(ld=>{
-  const card=document.createElement('div');card.className='chart-card';
-  card.innerHTML=`<h3>${ld.t}</h3>`;
-  const W=320,H=190,m={l:30,r:14,t:16,b:44};
-  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':ld.t+': '+ld.pts.map(p=>p[0]+' '+p[1]).join(', ')},card);
-  const y=v=>m.t+(H-m.t-m.b)*(1-v/7), x=i=>m.l+(W-m.l-m.r)*(i/2);
-  [0,2,4,6].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:'var(--line)','stroke-width':1},svg);el('text',{x:m.l-8,y:y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--faint)'},svg,v);});
-  el('polyline',{points:ld.pts.map((p,i)=>x(i)+','+y(p[1])).join(' '),fill:'none',stroke:'var(--store)','stroke-width':2.5,'stroke-linejoin':'round'},svg);
-  ld.pts.forEach((p,i)=>{
-    const full=i===2;
-    el('circle',{cx:x(i),cy:y(p[1]),r:full?6:4.5,fill:full?'var(--store)':'var(--surface)',stroke:'var(--store)','stroke-width':2},svg);
-    el('text',{x:x(i),y:y(p[1])-12,'text-anchor':'middle','font-size':12.5,'font-weight':700,fill:'var(--text)'},svg,p[1].toFixed(1));
-    const anchor=i===0?'start':i===2?'end':'middle', lx=i===0?x(i)-6:i===2?x(i)+6:x(i);
-    el('text',{x:lx,y:H-m.b+20,'text-anchor':anchor,'font-size':11,fill:'var(--muted)'},svg,p[0]);
-    el('text',{x:lx,y:H-m.b+34,'text-anchor':anchor,'font-size':10,fill:'var(--faint)'},svg,['Basic','Improved','Full'][i]);
+  let round = 0, mode = "rma";
+  const tl = $("#rt-timeline");
+  R.forEach((r, i) => {
+    const b = document.createElement("button");
+    b.className = "rt-tl"; b.setAttribute("role", "tab"); b.id = "rt-tl-" + i;
+    b.innerHTML = `<span class="n">${i}</span><span class="op"></span>`;
+    b.addEventListener("click", () => setRound(i));
+    tl.appendChild(b);
   });
-  L.appendChild(card);
-});
+  tl.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { setRound(Math.min(R.length - 1, round + 1)); $("#rt-tl-" + round).focus(); }
+    if (e.key === "ArrowLeft") { setRound(Math.max(0, round - 1)); $("#rt-tl-" + round).focus(); }
+  });
+  const st = { new: '<span class="rt-pill new">opened</span>', open: '<span class="rt-pill open">open</span>', res: '<span class="rt-pill res">resolved</span>' };
 
-function hbars(id,rows,max,opts={}){
-  const box=$(id);
-  box.innerHTML=rows.map(r=>`<div class="hbar ${r[2]||''}"><span>${esc(r[0])}</span><span class="track" style="${opts.noline?'--x:0':''}"><span class="fill" style="display:block;width:${(r[1]/max*100).toFixed(1)}%"></span></span><span class="v">${opts.fmt?opts.fmt(r[1]):r[1]}</span></div>`).join('');
-  if(opts.noline)box.querySelectorAll('.track').forEach(t=>t.classList.add('noline'));
-}
-const style=document.createElement('style');style.textContent='.hbar .track.noline::after{display:none}';document.head.appendChild(style);
-hbars('#components',[["Research store → stateless",1.8,"state"],["Context orchestration → dump",2.4,"state"],["Literature grounding",3.0],["Issue repair → FIFO",3.8],["Structural checker",3.8],["Completeness judge",4.1],["LM gap critic",4.3],["Fidelity analysis",4.5],["Meetings & revision",4.5],["Concept glossary",4.8],["Strategic insights",5.1],["Evaluator feedback",5.3]],7,{fmt:v=>v.toFixed(1)});
-hbars('#backbones',[["Claude Opus 4.8",0.58,"state"],["DeepSeek-Prover-V2",0.50],["Gemini 3.1 Pro",0.47],["Qwen2.5-Math",0.45],["GPT-5.5",0.42]],0.7,{noline:true,fmt:v=>v.toFixed(2)});
-hbars('#fc-solved',[["RMA",213,"state"],["NanoProof",135],["ReProver",105],["COPRA",75]],300,{noline:true});
-hbars('#fc-open',[["RMA",5,"state"],["NanoProof",3],["ReProver",2],["COPRA",1]],10,{noline:true});
+  function render() {
+    [...tl.children].forEach((b, i) => {
+      b.setAttribute("aria-selected", i === round); b.tabIndex = i === round ? 0 : -1;
+      b.querySelector(".op").innerHTML = `Round ${i}<br>${esc(mode === "rma" ? R[i].op : "Critique + revise")}`;
+    });
+    const r = R[round], P = $("#rt-panels");
+    if (mode === "rma") {
+      P.innerHTML = `
+      <div class="rt-panel"><div class="rt-lab"><span>Current proof state</span><span class="rt-pill neutral">r${round}</span></div><div class="rt-claim">${esc(r.claim)}</div></div>
+      <div class="rt-panel"><div class="rt-lab"><span>Issues in store</span><span style="text-transform:none;letter-spacing:0;font-weight:400">severity → dependency</span></div>
+        <ul class="rt-issues">${r.issues.map((x) => `<li class="${x[3] === "res" ? "gone" : ""}"><span class="rt-pill ${x[0]}">${x[0].toUpperCase()}</span><span class="t"><span class="rt-mono">${x[1]}</span> ${esc(x[2])}</span>${st[x[3]]}</li>`).join("")}</ul></div>
+      <div class="rt-panel"><div class="rt-lab"><span>Compiled context for ${esc(r.op)}</span><span style="text-transform:none;letter-spacing:0;font-weight:400">B = 60k tokens</span></div>
+        <div class="rt-ctx">${r.keep.map((k) => `<div class="keep"><span>${esc(k[0])}</span><span class="rt-mono">${esc(k[1])}</span></div>`).join("")}
+        ${r.drop.length ? `<div class="sep">Dropped (lowest priority / not linked)</div>` + r.drop.map((k) => `<div class="drop"><span>${esc(k[0])}</span><span class="rt-mono">${esc(k[1])}</span></div>`).join("") : ""}</div></div>
+      <div class="rt-panel"><div class="rt-lab"><span>Operation output → write back</span></div>
+        <div class="rt-out">${r.out.map((o, i) => `<div>${i === r.out.length - 1 ? '<span class="k">Next</span>' : ""}${esc(o)}</div>`).join("")}</div></div>`;
+    } else {
+      const g = r.gen;
+      P.innerHTML = `
+      ${g.lost ? `<div class="rt-banner"><b>Lost obligation:</b> ${esc(g.lost)}</div>` : ""}
+      <div class="rt-panel"><div class="rt-lab"><span>What the call sees</span></div><div class="rt-claim">${esc(g.sees)}</div>
+        <div class="rt-ctx"><div class="drop"><span>Typed issue records</span><span class="rt-mono">—</span></div><div class="drop"><span>Dependency graph and severity ranking</span><span class="rt-mono">—</span></div><div class="drop"><span>Failed attempts and literature notes</span><span class="rt-mono">—</span></div></div></div>
+      <div class="rt-panel"><div class="rt-lab"><span>Critique + revise output</span></div><div class="rt-out"><div>${esc(g.out)}</div></div>
+        <div class="rt-lab" style="margin-top:4px"><span>Tracked open obligations</span></div><div class="rt-out"><div style="color:var(--rt-faint)">None: no state persists outside the history window.</div></div></div>`;
+    }
+  }
+  function setRound(i) {
+    if (i === round) { render(); return; }
+    round = i; const P = $("#rt-panels"); P.classList.add("fading");
+    setTimeout(() => { render(); P.classList.remove("fading"); }, 120);
+  }
+  function setMode(m) { mode = m; $("#rt-mode-rma").setAttribute("aria-pressed", m === "rma"); $("#rt-mode-gen").setAttribute("aria-pressed", m === "gen"); render(); }
+  $("#rt-mode-rma").addEventListener("click", () => setMode("rma"));
+  $("#rt-mode-gen").addEventListener("click", () => setMode("gen"));
+  render();
 
-/* cost + rounds chart */
-(function(){
-  const svg=$('#costchart');
-  // left: cost vs passes (log x)
-  const A={x0:40,x1:290,y0:20,y1:200};
-  const lx=v=>A.x0+(A.x1-A.x0)*((Math.log10(v)-2)/2), ly=v=>A.y1-(A.y1-A.y0)*(v/10);
-  [0,2,4,6,8,10].forEach(v=>{el('line',{x1:A.x0,x2:A.x1,y1:ly(v),y2:ly(v),stroke:'var(--line)'},svg);el('text',{x:A.x0-7,y:ly(v)+4,'text-anchor':'end','font-size':10.5,fill:'var(--faint)'},svg,v);});
-  [[100,'$100'],[1000,'$1k'],[10000,'$10k']].forEach(([v,t])=>el('text',{x:lx(v),y:A.y1+16,'text-anchor':'middle','font-size':10.5,fill:'var(--faint)'},svg,t));
-  el('text',{x:(A.x0+A.x1)/2,y:A.y1+34,'text-anchor':'middle','font-size':10.5,fill:'var(--muted)'},svg,'Total cost (USD, log)');
-  el('text',{x:12,y:(A.y0+A.y1)/2,'text-anchor':'middle','font-size':10.5,fill:'var(--muted)',transform:`rotate(-90 12 ${(A.y0+A.y1)/2})`},svg,'Passes / 10');
-  const rma=[[153,4],[1850,8],[3571,8]];
-  el('polyline',{points:rma.map(p=>lx(p[0])+','+ly(p[1])).join(' '),fill:'none',stroke:'var(--store)','stroke-width':2.5},svg);
-  rma.forEach(p=>el('circle',{cx:lx(p[0]),cy:ly(p[1]),r:4.5,fill:'var(--store)'},svg));
-  el('text',{x:lx(1850)-4,y:ly(8)-10,'text-anchor':'end','font-size':11,'font-weight':700,fill:'var(--store)'},svg,'RMA');
-  el('text',{x:lx(153)+8,y:ly(4)+4,'font-size':10,fill:'var(--muted)'},svg,'$153');
-  const bl=[[3186,7,'ProofCouncil','end',-8,16],[4799,3,'UCLA Moonshot','end',-8,4],[117,3,'ChatGPT 5.5 Pro','start',8,4],[1014,1,'Momus','start',8,4]];
-  bl.forEach(b=>{el('circle',{cx:lx(b[0]),cy:ly(b[1]),r:4,fill:'var(--surface)',stroke:'var(--faint)','stroke-width':1.8},svg);el('text',{x:lx(b[0])+b[4],y:ly(b[1])+b[5],'text-anchor':b[3],'font-size':10,fill:'var(--muted)'},svg,b[2]);});
-  // right: rounds
-  const B={x0:340,x1:505,y0:20,y1:200};
-  const rx=i=>B.x0+(B.x1-B.x0)*((i-1)/5), ry=v=>B.y1-(B.y1-B.y0)*(v/7);
-  [0,2,4,6].forEach(v=>{el('line',{x1:B.x0,x2:B.x1,y1:ry(v),y2:ry(v),stroke:'var(--line)'},svg);el('text',{x:B.x0-7,y:ry(v)+4,'text-anchor':'end','font-size':10.5,fill:'var(--faint)'},svg,v);});
-  const rs=[3.2,3.7,4.5,5.3,5.8,6.0];
-  el('polyline',{points:rs.map((v,i)=>rx(i+1)+','+ry(v)).join(' '),fill:'none',stroke:'var(--orch)','stroke-width':2.5},svg);
-  rs.forEach((v,i)=>{el('circle',{cx:rx(i+1),cy:ry(v),r:3.8,fill:'var(--orch)'},svg);el('text',{x:rx(i+1)+1,y:B.y1+16,'text-anchor':'middle','font-size':10.5,fill:'var(--faint)'},svg,i+1);});
-  [[0,3.2],[3,5.3],[5,6.0]].forEach(([i,v])=>el('text',{x:rx(i+1),y:ry(v)-9,'text-anchor':'middle','font-size':10.5,'font-weight':700,fill:'var(--text)'},svg,v.toFixed(1)));
-  el('text',{x:(B.x0+B.x1)/2,y:B.y1+34,'text-anchor':'middle','font-size':10.5,fill:'var(--muted)'},svg,'Research rounds N_R');
+  const pill = (c, t) => `<span class="rt-pill ${c}">${t}</span>`;
+  const S = {
+    Issues: [
+      { id: "I-01", title: "Lemma 6: good vertex unproved", f: [["Type","Missing justification"],["Severity",pill("p0","P0")],["Claim","Lemma 6 (Good Vertex)"],["Dependency impact","4 downstream claims (Lemma 7, Theorem 1, …)"],["Opened","Round 0 · LM gap critic + structural checker"],["Repair attempts","2 (A-02 failed, A-04 applied)"],["Status",pill("res","Resolved in round 3")],["Needed repair","Exhibit a vertex t ∉ S whose addition keeps the barrier potential bounded while the leverage sum grows by at most a constant."],["Links","A-02 · A-04 · L-01 · r3"]] },
+      { id: "I-02", title: "Lemma 3: trace formula underived", f: [["Type","Unsupported claim"],["Severity",pill("p1","P1")],["Claim","Lemma 3 (Trace formula for leverage scores)"],["Dependency impact","3 downstream claims"],["Opened","Round 0"],["Status",pill("res","Resolved in round 3")],["Links","L-02"]] },
+      { id: "I-03", title: "Claim 2: reduction not justified", f: [["Type","Missing justification"],["Severity",pill("p2","P2")],["Claim","Claim 2 (Reduction to connected graphs)"],["Dependency impact","1 downstream claim"],["Opened","Round 0"],["Status",pill("res","Resolved in round 4 (meeting plan)")],["Links","M-01"]] },
+    ],
+    Proof: [
+      { id: "r0", title: "Initial draft", f: [["Round","0"],["Content","Greedy construction with a barrier potential; constant 1/42 claimed; Lemmas 3–7 stated, several only sketched."]] },
+      { id: "r3", title: "After Lemma 6 repair", f: [["Round","3"],["Change","Anchored patch replacing the proof of Lemma 6 (A-04), plus a derivation for Lemma 3"],["Write-back gate","Anchor matched uniquely; no text outside the span changed"]] },
+      { id: "r5", title: "Delivered proof", f: [["Round","5"],["Structure","Theorem 1 (final bound) · Claim 2 (reduction) · Lemma 3 (trace formula) · Lemma 4 (quadratic form) · Lemma 5 (greedy step) · Lemma 6 (good vertex) · Lemma 7 (induction)"],["Expert verdict","5 of 5 correct"]] },
+    ],
+    Attempts: [
+      { id: "A-02", title: "Pigeonhole for Lemma 6", f: [["Issue","I-01"],["Round","1"],["Outcome",pill("open","Failed on recheck")],["Why","Bounds the leverage increase only on average over all vertices, which loses a factor of 2 in the final constant."]] },
+      { id: "A-04", title: "Averaging + barrier for Lemma 6", f: [["Issue","I-01"],["Round","3"],["Context used","A-02 (failure reason), L-01 (barrier technique)"],["Outcome",pill("res","Applied")]] },
+    ],
+    Literature: [
+      { id: "L-01", title: "Barrier potentials", f: [["Technique","One-sided barrier potential argument from spectral sparsification"],["Assumptions","PSD increments; potential finite at the start"],["Supports","Lemma 6 (I-01)"],["Limits","Controls only one side of the spectrum"]] },
+      { id: "L-02", title: "Leverage score identities", f: [["Technique","Effective resistance ↔ leverage score; trace of the projection"],["Supports","Lemma 3 (I-02)"],["Limits","Connected graphs (see Claim 2)"]] },
+    ],
+    Meetings: [
+      { id: "M-01", title: "Restructure proof order", f: [["Round","4"],["Participants","Coordinator · spectral graph theorist · combinatorialist"],["Action plan","Move the reduction to connected graphs to the front, and restate the barrier invariant inside the induction of Lemma 7."],["Insights written","1 (ℋ)"]] },
+    ],
+    Concepts: [
+      { id: "K-light", title: "ε-light set", f: [["Definition","S ⊆ V is ε-light if εL − L<sub>S</sub> ⪰ 0."],["Notation","L_S is the Laplacian of G_S (edges inside S)"],["Source","Problem statement"]] },
+      { id: "K-lev", title: "Leverage score", f: [["Definition","For an edge e, ℓ<sub>e</sub> = b<sub>e</sub><sup>⊤</sup>L<sup>†</sup>b<sub>e</sub>."],["Source","L-02"]] },
+    ],
+    Insights: [
+      { id: "H-01", title: "Interlacing families", f: [["Direction","An interlacing-polynomial approach might improve the constant"],["Priority","Lowest context priority (dropped first)"],["Status","Unexplored; not needed for the stated question"]] },
+    ],
+    Evaluations: [
+      { id: "E-r5", title: "Round 5 evaluation", f: [["Correctness","No open correctness-critical issues"],["Completeness","All leaf claims closed"],["Decision","Solved(π, e), so the loop stops"]] },
+    ],
+  };
+  const side = $("#rt-side"); let comp = "Issues", rec = 0;
+  Object.keys(S).forEach((k) => {
+    const b = document.createElement("button"); b.setAttribute("role", "tab"); b.dataset.k = k;
+    b.innerHTML = `<span>${k}</span><span class="c">${S[k].length}</span>`;
+    b.addEventListener("click", () => { comp = k; rec = 0; renderInsp(); });
+    side.appendChild(b);
+  });
+  function renderInsp() {
+    [...side.children].forEach((b) => b.setAttribute("aria-selected", b.dataset.k === comp));
+    $("#rt-path").textContent = `store/prob-06/${comp.toLowerCase()}/${S[comp][rec].id}.json`;
+    const L = $("#rt-list");
+    L.innerHTML = S[comp].map((r, i) => `<button role="option" aria-selected="${i === rec}" data-i="${i}"><span class="rt-mono">${esc(r.id)}</span><span>${esc(r.title)}</span></button>`).join("");
+    [...L.children].forEach((b) => b.addEventListener("click", () => { rec = +b.dataset.i; renderInsp(); }));
+    const r = S[comp][rec];
+    $("#rt-detail").innerHTML = `<div class="rt-dh">${esc(r.title)}</div><dl class="rt-kv">${r.f.map((x) => `<dt>${esc(x[0])}</dt><dd>${x[1]}</dd>`).join("")}</dl>`;
+  }
+  renderInsp();
 })();
-})();
-</script>
+</script> </div>
+<h2 id="results">Results</h2>
+<p>We evaluate on four benchmarks that use complementary evaluators: third-party expert grading (SOOHAK), blind review by mathematicians (First Proof B1 and B2), Lean 4 kernel verification (Formal Conjectures), and an LLM-judge protocol (ResearchMath). Unless noted otherwise, RMA uses the Claude Opus 4.8 backbone.</p>
+<h3 id="soohak-challenge-hard">SOOHAK Challenge Hard</h3>
+<p>SOOHAK Challenge Hard has 40 non-public, contamination-resistant problems. We submitted RMA’s API endpoint, and the benchmark organizers evaluated it under their official expert protocol. Baseline numbers are reported by the SOOHAK authors.</p>
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Method</th><th style="text-align:center">Solve rate (%) ↑</th></tr></thead><tbody><tr><td style="text-align:left"><strong>RMA (ours)</strong></td><td style="text-align:center"><strong>42.5</strong></td></tr><tr><td style="text-align:left">GPT-5.5</td><td style="text-align:center">35.0</td></tr><tr><td style="text-align:left">Gemini 3.1 Pro</td><td style="text-align:center">17.5</td></tr><tr><td style="text-align:left">Claude Opus 4.8</td><td style="text-align:center">12.5</td></tr><tr><td style="text-align:left">Kimi K2.7 Code</td><td style="text-align:center">7.5</td></tr><tr><td style="text-align:left">DeepSeek-V4-Flash</td><td style="text-align:center">5.0</td></tr><tr><td style="text-align:left">Claude Sonnet 4.5</td><td style="text-align:center">2.5</td></tr></tbody> </table> </div>
+<p>Over three seeds, RMA scores 41.7 ± 2.5%. The gap over its own standalone backbone (12.5%) is far larger than this spread.</p>
+<h3 id="first-proof-b1">First Proof B1</h3>
+<p>First Proof B1 contains ten research problems contributed by expert mathematicians. At least three mathematicians grade each solution blind. A solution counts as correct (✓) or incorrect (×) only when all of its graders agree. Any disagreement is recorded as inconclusive (≈).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Method</th><th style="text-align:center">✓ ↑</th><th style="text-align:center">≈</th><th style="text-align:center">× ↓</th></tr></thead><tbody><tr><td style="text-align:left"><strong>RMA (ours)</strong></td><td style="text-align:center"><strong>8</strong></td><td style="text-align:center">1</td><td style="text-align:center">1</td></tr><tr><td style="text-align:left">Aletheia</td><td style="text-align:center">5</td><td style="text-align:center">1</td><td style="text-align:center">4</td></tr><tr><td style="text-align:left">GPT-5.2R</td><td style="text-align:center">3</td><td style="text-align:center">4</td><td style="text-align:center">3</td></tr><tr><td style="text-align:left">AgenticR</td><td style="text-align:center">3</td><td style="text-align:center">2</td><td style="text-align:center">5</td></tr><tr><td style="text-align:left">Opus 4.8</td><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">9</td></tr><tr><td style="text-align:left">GPT-DR</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">10</td></tr><tr><td style="text-align:left">Gemini-DR</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">10</td></tr></tbody> </table> </div>
+<p>The figure below shows problem 6, the example used in the interactive demo. RMA recovers the constant 1/42, and all five experts judged its proof correct. GPT-5.2R derives the looser constant 1/256 and cites hallucinated references (2 correct and 3 inconclusive verdicts). Aletheia returns no solution.</p>
+<div class="mx-[calc(max(var(--minimum-inline-margin),(100cqw-100rem)/2)-var(--actual-inline-margin))]"> <figure> <div class="flex w-full justify-center **:my-0"> <picture> <source srcset="/RMA-ICLR2027/_astro/teaser.D2Vnx8i6_SIM7G.avif 640w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Zu5Gs9.avif 750w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_ZSWilX.avif 828w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_2owhTa.avif 1080w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z2kUEOW.avif 1280w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z1moobr.avif 1668w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_srKJe.avif 2048w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_hNuAk.avif 2353w" type="image/avif">  <img src="/RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z205Ps7.png" srcset="/RMA-ICLR2027/_astro/teaser.D2Vnx8i6_1qvhVa.png 640w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_2FNlk.png 750w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_ZmaMxu.png 828w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z1h7CdP.png 1080w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_ZVnr91.png 1280w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_1pSoz3.png 1668w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z1Orzjd.png 2048w, /RMA-ICLR2027/_astro/teaser.D2Vnx8i6_Z205Ps7.png 2353w" alt="Problem 6 of First Proof B1 with the reference lemmas, Aletheia's empty output, GPT-5.2R's looser 1/256 bound, and RMA's 1/42 proof with every lemma marked correct." loading="lazy" decoding="async" sizes="(min-width: 2353px) 2353px, 100vw" data-astro-image="constrained" data-astro-image-fit="contain" data-astro-image-pos="center" width="2353" height="1470" class="rounded-lg max-h-[calc(100svh-3rem)] max-w-full w-min mx-auto "> </picture> </div> <figcaption class="text-center"> Solution summaries for First Proof B1, problem 6 (ε-light subsets). </figcaption> </figure> </div>
+<h3 id="first-proof-b2">First Proof B2</h3>
+<p>Human mathematicians graded each B2 submission Pass (flawless or needing only minor revisions) or Fail. The comparison set follows the benchmark authors.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Method</th><th style="text-align:center">Pass ↑</th><th style="text-align:center">Fail</th><th style="text-align:center">Total cost ($)</th></tr></thead><tbody><tr><td style="text-align:left"><strong>RMA (ours)</strong></td><td style="text-align:center"><strong>8</strong></td><td style="text-align:center">2</td><td style="text-align:center">3,571</td></tr><tr><td style="text-align:left">ProofCouncil</td><td style="text-align:center">7</td><td style="text-align:center">3</td><td style="text-align:center">3,186</td></tr><tr><td style="text-align:left">UCLA Moonshot</td><td style="text-align:center">3</td><td style="text-align:center">7</td><td style="text-align:center">4,799</td></tr><tr><td style="text-align:left">ChatGPT 5.5 Pro</td><td style="text-align:center">3</td><td style="text-align:center">7</td><td style="text-align:center">117</td></tr><tr><td style="text-align:left">Princeton Momus</td><td style="text-align:center">1</td><td style="text-align:center">9</td><td style="text-align:center">1,014</td></tr></tbody> </table> </div>
+<p>Over three seeds, RMA passes 7.7 ± 0.6 problems, so we report the one-problem margin over ProofCouncil descriptively.</p>
+<h3 id="orchestration-vs-compute">Orchestration vs. compute</h3>
+<p>To test whether the gain comes simply from spending more inference, we ran <em>Generic Iterative Revision</em> on the same ten B2 problems. It removes the store and the orchestrator entirely and keeps the backbone, number of rounds (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>R</mi></msub><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">N_R=6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0077em">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.6444em"></span><span class="mord">6</span></span></span></span>), tools, and token budget. Each round is one critique-and-revise call that sees only the problem, its own last output, and a fixed history window. The same blind Pass/Fail protocol grades both systems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Variant</th><th style="text-align:center">Backbone</th><th style="text-align:center">Orchestration</th><th style="text-align:center">Pass / 10 ↑</th><th style="text-align:center">Cost ($)</th></tr></thead><tbody><tr><td style="text-align:left"><strong>RMA (reported run)</strong></td><td style="text-align:center">Opus 4.8</td><td style="text-align:center">full</td><td style="text-align:center"><strong>8</strong></td><td style="text-align:center">3,571</td></tr><tr><td style="text-align:left">RMA, 3 seeds</td><td style="text-align:center">Opus 4.8</td><td style="text-align:center">full</td><td style="text-align:center">7.7 ± 0.6</td><td style="text-align:center">–</td></tr><tr><td style="text-align:left">Generic Iterative Revision</td><td style="text-align:center">Opus 4.8</td><td style="text-align:center">none</td><td style="text-align:center">4</td><td style="text-align:center">≈ 3,520</td></tr></tbody> </table> </div>
+<p>Removing the store and the orchestrator halves the number of passing solutions at essentially the same spend.</p>
+<h3 id="formal-conjectures-lean-4">Formal Conjectures (Lean 4)</h3>
+<p>For Formal Conjectures, the same loop produces Lean 4 proofs. Compiler errors are routed back as ordinary repair issues, and a proof counts only if the Lean kernel accepts it against the original, unmodified declaration. We uniformly sampled 300 <em>Research Solved</em> and 300 <em>Research Open</em> problems from the benchmark’s research category (seed 42, with no solvability filtering). All baselines ran on the same problems, with the same compute ceiling and Lean toolchain.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Method</th><th style="text-align:center">Research Solved (of 300) ↑</th><th style="text-align:center">Research Open (of 300) ↑</th></tr></thead><tbody><tr><td style="text-align:left">COPRA</td><td style="text-align:center">75 (25.0%)</td><td style="text-align:center">1 (0.3%)</td></tr><tr><td style="text-align:left">ReProver</td><td style="text-align:center">105 (35.0%)</td><td style="text-align:center">2 (0.7%)</td></tr><tr><td style="text-align:left">NanoProof</td><td style="text-align:center">135 (45.0%)</td><td style="text-align:center">3 (1.0%)</td></tr><tr><td style="text-align:left"><strong>RMA (ours)</strong></td><td style="text-align:center"><strong>213 (71.0%)</strong></td><td style="text-align:center"><strong>5 (1.7%)</strong></td></tr></tbody> </table> </div>
+<p>Kernel acceptance certifies the benchmark’s formal target statement as given. The Research Open successes are type-checks against those stated targets, and 5 vs. 3 is within our three-seed spread (4.7 ± 1.2).</p>
+<h3 id="researchmath">ResearchMath</h3>
+<p>On the benchmark authors’ 90-problem sample, an LLM judge scores whether a trace decomposes the problem into useful intermediate lemmas. This is the only evaluation with no human or formal component.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Model</th><th style="text-align:center">Positive decompositions ↑</th><th style="text-align:center">Rate (%) ↑</th></tr></thead><tbody><tr><td style="text-align:left"><strong>RMA (ours)</strong></td><td style="text-align:center"><strong>5 / 90</strong></td><td style="text-align:center"><strong>5.6</strong></td></tr><tr><td style="text-align:left">Qwen3.5-397B</td><td style="text-align:center">3 / 90</td><td style="text-align:center">3.3</td></tr><tr><td style="text-align:left">DeepSeek V4-Pro</td><td style="text-align:center">2 / 90</td><td style="text-align:center">2.2</td></tr><tr><td style="text-align:left">Kimi K2</td><td style="text-align:center">2 / 90</td><td style="text-align:center">2.2</td></tr></tbody> </table> </div>
+<h3 id="cost-scaling-and-ablations">Cost, scaling, and ablations</h3>
+<div class="mx-[calc(max(var(--minimum-inline-margin),(100cqw-100rem)/2)-var(--actual-inline-margin))]"> <figure> <div class="flex w-full justify-center **:my-0"> <picture> <source srcset="/RMA-ICLR2027/_astro/ablation.2PTQjPMZ_ZsjJGK.avif 640w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_b4xP2.avif 750w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_ZHaCoV.avif 828w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_K1JMo.avif 1080w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_Z1iHwNO.avif 1280w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_ZYTS1s.avif 1668w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_ZF1vJz.avif 1980w" type="image/avif">  <img src="/RMA-ICLR2027/_astro/ablation.2PTQjPMZ_27gh0U.png" srcset="/RMA-ICLR2027/_astro/ablation.2PTQjPMZ_VdsYb.png 640w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_1zBLvX.png 750w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_GmAh0.png 828w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_Z1wRAg3.png 1080w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_1tzfVF.png 1280w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_1MmTJ2.png 1668w, /RMA-ICLR2027/_astro/ablation.2PTQjPMZ_27gh0U.png 1980w" alt="Four panels: cost versus expert passes, judge score versus number of rounds, component ablation bars, and graded design-choice ladders." loading="lazy" decoding="async" sizes="(min-width: 1980px) 1980px, 100vw" data-astro-image="constrained" data-astro-image-fit="contain" data-astro-image-pos="center" width="1980" height="584" class="rounded-lg max-h-[calc(100svh-3rem)] max-w-full w-min mx-auto "> </picture> </div> <figcaption class="text-center"> <strong>Cost, scalability, and ablations on First Proof B2.</strong> (a) Expert passes vs. total cost. (b) LLM-judge score vs. number of research rounds. (c) Score when each component is reduced to its simplest working variant. (d) Graded design choices for memory, context handling, and issue ordering. </figcaption> </figure> </div>
+<p>Varying only the API budget, RMA goes from 4 passes at $153 to 8 at $1,850, with no further gain at $3,571. Varying only the number of rounds, the continuous judge score rises from 3.2 with one round to 5.3 with four and 6.0 with six. In the component ablations, the two components that govern <em>state</em> cause the largest drops from 6.0: reducing the persistent store to a stateless variant gives 1.8, and dumping the full state into context instead of orchestrating it gives 2.4. Along each graded axis, the score rises monotonically as the mechanism is strengthened:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Axis</th><th style="text-align:center">Basic</th><th style="text-align:center">Improved</th><th style="text-align:center">Full</th></tr></thead><tbody><tr><td style="text-align:left">Cross-round memory</td><td style="text-align:center">Stateless: 1.8</td><td style="text-align:center">Last round only: 3.4</td><td style="text-align:center">Full persistence: <strong>6.0</strong></td></tr><tr><td style="text-align:left">Context handling</td><td style="text-align:center">Dump entire state: 2.4</td><td style="text-align:center">Naive truncation: 4.0</td><td style="text-align:center">RMA orchestration: <strong>6.0</strong></td></tr><tr><td style="text-align:left">Issue ordering</td><td style="text-align:center">FIFO: 3.8</td><td style="text-align:center">Severity only: 5.0</td><td style="text-align:center">Severity + dependency: <strong>6.0</strong></td></tr></tbody> </table> </div>
+<p>The continuous score is the mean of a three-model judge panel (Claude Opus 4.8, GPT-5.2, and Gemini 3.1 Pro). On First Proof B1, the panel agrees well with the human experts:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Agreement measure</th><th style="text-align:center">Value</th></tr></thead><tbody><tr><td style="text-align:left">Spearman ρ, expert vs. panel score</td><td style="text-align:center">0.72</td></tr><tr><td style="text-align:left">Pairwise A–B agreement</td><td style="text-align:center">78%</td></tr><tr><td style="text-align:left">Fleiss’ κ, human experts</td><td style="text-align:center">0.61</td></tr><tr><td style="text-align:left">Fleiss’ κ, LLM panel</td><td style="text-align:center">0.68</td></tr><tr><td style="text-align:left">Spearman ρ without the Opus 4.8 judge</td><td style="text-align:center">0.69</td></tr></tbody> </table> </div>
+<h3 id="backbone-generality">Backbone generality</h3>
+<p>Holding every prompt, tool, and budget fixed, we swapped only the backbone model. On First Proof B2, measured as blind expert A–B win rate:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Backbone</th><th style="text-align:center">Win rate ↑</th></tr></thead><tbody><tr><td style="text-align:left">Claude Opus 4.8 (default)</td><td style="text-align:center">0.58</td></tr><tr><td style="text-align:left">DeepSeek-Prover-V2 (open-weight)</td><td style="text-align:center">0.50</td></tr><tr><td style="text-align:left">Gemini 3.1 Pro</td><td style="text-align:center">0.47</td></tr><tr><td style="text-align:left">Qwen2.5-Math (open-weight)</td><td style="text-align:center">0.45</td></tr><tr><td style="text-align:left">GPT-5.5</td><td style="text-align:center">0.42</td></tr></tbody> </table> </div>
+<p>On the other benchmarks, the best backbone varies by benchmark:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Backbone</th><th style="text-align:center">SOOHAK solve (%)</th><th style="text-align:center">FC Research Solved (of 300)</th><th style="text-align:center">ResearchMath positive (of 90)</th></tr></thead><tbody><tr><td style="text-align:left">Claude Opus 4.8 (default)</td><td style="text-align:center">42.5</td><td style="text-align:center">213</td><td style="text-align:center">5</td></tr><tr><td style="text-align:left">GPT-5.5</td><td style="text-align:center"><strong>45.0</strong></td><td style="text-align:center">195</td><td style="text-align:center">5</td></tr><tr><td style="text-align:left">Gemini 3.1 Pro</td><td style="text-align:center">37.5</td><td style="text-align:center">185</td><td style="text-align:center">4</td></tr><tr><td style="text-align:left">DeepSeek-Prover-V2</td><td style="text-align:center">32.5</td><td style="text-align:center"><strong>225</strong></td><td style="text-align:center">5</td></tr><tr><td style="text-align:left">Qwen2.5-Math</td><td style="text-align:center">27.5</td><td style="text-align:center">190</td><td style="text-align:center">4</td></tr></tbody> </table> </div>
+<h3 id="run-to-run-variance">Run-to-run variance</h3>
+<p>Each headline number comes from a single run. We repeated the full pipeline with three independent seeds:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full-bleed overflow-auto px-6"> <table class="mx-auto w-auto"> <thead><tr><th style="text-align:left">Benchmark</th><th style="text-align:left">Metric</th><th style="text-align:center">Reported run</th><th style="text-align:center">Mean ± sd (3 seeds)</th></tr></thead><tbody><tr><td style="text-align:left">SOOHAK Challenge Hard</td><td style="text-align:left">Solve rate (%)</td><td style="text-align:center">42.5</td><td style="text-align:center">41.7 ± 2.5</td></tr><tr><td style="text-align:left">First Proof B1</td><td style="text-align:left">✓ / 10</td><td style="text-align:center">8</td><td style="text-align:center">7.7 ± 0.6</td></tr><tr><td style="text-align:left">First Proof B2</td><td style="text-align:left">Pass / 10</td><td style="text-align:center">8</td><td style="text-align:center">7.7 ± 0.6</td></tr><tr><td style="text-align:left">Formal Conjectures, Research Solved</td><td style="text-align:left">Verified / 300</td><td style="text-align:center">213</td><td style="text-align:center">211 ± 5</td></tr><tr><td style="text-align:left">Formal Conjectures, Research Open</td><td style="text-align:left">Verified / 300</td><td style="text-align:center">5</td><td style="text-align:center">4.7 ± 1.2</td></tr><tr><td style="text-align:left">ResearchMath</td><td style="text-align:left">Positive / 90</td><td style="text-align:center">5</td><td style="text-align:center">4.7 ± 0.6</td></tr></tbody> </table> </div>
+<h2 id="bibtex">BibTeX</h2>
+<div class="expressive-code"><link rel="stylesheet" href="/RMA-ICLR2027/_astro/ec.0wf8d.css"/><script type="module" src="/RMA-ICLR2027/_astro/ec.0vx5m.js"></script><figure class="frame"><figcaption class="header"></figcaption><pre data-language="bibtex"><code><div class="ec-line"><div class="code"><span style="--0:#F97583;--1:#BF3441">@inproceedings</span><span style="--0:#E1E4E8;--1:#24292E">{</span><span style="--0:#B392F0;--1:#6F42C1">anonymous2027rma</span><span style="--0:#E1E4E8;--1:#24292E">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#79B8FF;--1:#005CC5">title</span><span style="--0:#E1E4E8;--1:#24292E">     = </span><span style="--0:#9ECBFF;--1:#032F62">{</span><span style="--0:#E1E4E8;--1:#24292E">Context-Orchestrated Research Math Agents</span><span style="--0:#9ECBFF;--1:#032F62">}</span><span style="--0:#E1E4E8;--1:#24292E">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#79B8FF;--1:#005CC5">author</span><span style="--0:#E1E4E8;--1:#24292E">    = </span><span style="--0:#9ECBFF;--1:#032F62">{</span><span style="--0:#E1E4E8;--1:#24292E">Anonymous</span><span style="--0:#9ECBFF;--1:#032F62">}</span><span style="--0:#E1E4E8;--1:#24292E">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#79B8FF;--1:#005CC5">booktitle</span><span style="--0:#E1E4E8;--1:#24292E"> = </span><span style="--0:#9ECBFF;--1:#032F62">{</span><span style="--0:#E1E4E8;--1:#24292E">Submitted to the International Conference on Learning Representations (ICLR)</span><span style="--0:#9ECBFF;--1:#032F62">}</span><span style="--0:#E1E4E8;--1:#24292E">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#79B8FF;--1:#005CC5">year</span><span style="--0:#E1E4E8;--1:#24292E">      = </span><span style="--0:#9ECBFF;--1:#032F62">{</span><span style="--0:#E1E4E8;--1:#24292E">2027</span><span style="--0:#9ECBFF;--1:#032F62">}</span><span style="--0:#E1E4E8;--1:#24292E">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#79B8FF;--1:#005CC5">note</span><span style="--0:#E1E4E8;--1:#24292E">      = </span><span style="--0:#9ECBFF;--1:#032F62">{</span><span style="--0:#E1E4E8;--1:#24292E">Under review</span><span style="--0:#9ECBFF;--1:#032F62">}</span></div></div><div class="ec-line"><div class="code"><span style="--0:#E1E4E8;--1:#24292E">}</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="@inproceedings{anonymous2027rma,  title     = {Context-Orchestrated Research Math Agents},  author    = {Anonymous},  booktitle = {Submitted to the International Conference on Learning Representations (ICLR)},  year      = {2027},  note      = {Under review}}"><div></div></button></div></figure></div> </main> <footer class="mx-auto max-w-[50rem] px-6 text-center"> <p class="prose-sm text-center">
+Built with <a href="https://research-template.roman.technology" rel="nofollow">Roman Hauksson-Neill's project page template</a> </p> </footer> </body></html>

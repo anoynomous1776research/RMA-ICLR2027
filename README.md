@@ -1,5 +1,3 @@
-# Research Math Agents: anonymous project page
+# Context-Orchestrated Research Math Agents: project page
 
-Anonymous project page for the ICLR 2027 submission *Context-Orchestrated Research Math Agents*.
-
-Static single page, served with GitHub Pages. It has no analytics and makes no third-party requests (fonts are self-hosted).
+Anonymous project page for an ICLR 2027 submission. Built with the [academic-project-astro-template](https://github.com/RomanHauksson/academic-project-astro-template). No analytics; all assets and fonts are self-hosted.
